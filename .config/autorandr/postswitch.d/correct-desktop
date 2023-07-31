@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nohup "$HOME"/.local/share/bin/launchers/launch-conky.sh >/dev/null 2>&1 &
+"$HOME"/.local/share/bin/bg.sh
