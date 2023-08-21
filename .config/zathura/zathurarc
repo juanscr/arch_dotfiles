@@ -1,0 +1,8 @@
+# Copy to clpboard
+set selection-clipboard clipboard
+
+# Font
+set font "JetBrains Mono 10"
+
+# Bar
+set guioptions ""
