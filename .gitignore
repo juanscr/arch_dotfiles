@@ -1,0 +1,13 @@
+# Directories
+__pycache__/*
+
+# Files
+packer_compiled.lua
+
+# File extensions
+*.pyc
+
+# Git sensitive configuration
+**/git/*
+!**/git/config.template
+

@@ -1,0 +1,7 @@
+[core]
+	editor = nvim
+[user]
+	email =
+	name =
+[pull]
+	rebase = true
