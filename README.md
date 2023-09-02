@@ -94,6 +94,7 @@ pacman -S \
     hdparm \                                  # Set hard drive parameters
     zathura \                                 # PDF viewer
     nsxiv \                                   # Image viewer
+    exa \                                     # ls but better
     conky htop                                # System monitoring
 ```
 
