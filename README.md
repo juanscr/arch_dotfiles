@@ -136,9 +136,7 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 When I first did my Arch installation I notice that, as time passed on, the clock that
 was showing on my desktop was slowly getting out of sync of the real time. That occured
 because I didn't configure any network time syncing mechanisms to constantly sync the
-time.
-
-For network time syncing, NTP is not suggested as laptops do not have a permanent
+time. For network time syncing, NTP is not suggested as laptops do not have a permanent
 network connection and is really slow for time syncing. Instead use `chrony` that is
 specifically designed to combat this issues. The Colombian NTP servers can be seen
 [this page](https://www.ntppool.org/zone/co).
@@ -147,4 +145,33 @@ To activate the servers when I'm connected to a network, I use the following
 [aur package](https://aur.archlinux.org/packages/networkmanager-dispatcher-chrony/).
 Remember to install the `chrony` package and enable `chronyd.service`;
 additionally, disable and stop `systemd-timesyncd` for enabling chrony properly.
+My chrony configuration file is:
 
+```
+# Colombia NTP servers
+server 3.co.pool.ntp.org iburst offline
+server 0.south-america.pool.ntp.org iburst offline
+server 1.south-america.pool.ntp.org iburst offline
+
+rtcsync
+
+# Drift file
+driftfile /var/lib/chrony/drift
+
+# If you specify an NTP server with the nts option to enable authentication
+# with the Network Time Security (NTS) mechanism, or enable server NTS with
+# the ntsservercert and ntsserverkey directives below, the following line will
+# allow the client/server to save the NTS keys and cookies in order to reduce
+# the number of key establishments (NTS-KE sessions).
+
+ntsdumpdir /var/lib/chrony
+
+# If the system timezone database is kept up to date and includes the
+# right/UTC timezone, chronyd can use it to determine the current
+# TAI-UTC offset and when will the next leap second occur.
+
+leapsectz right/UTC
+
+# INITIAL CLOCK CORRECTION
+makestep 1.0 3
+```
