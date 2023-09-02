@@ -61,7 +61,7 @@ pacstrap -K /mnt \
     grub efibootmgr \           # Boot loader
     man-db man-pages texinfo \  # Package information
     intel-ucode \               # Microcode for intel CPUs
-    openssh \                   # SSH client
+    openssh                     # SSH client
 ```
 
 Additionaly, the packages that I selected to construct my fully customized desktop
@@ -95,6 +95,8 @@ pacman -S \
     zathura \                                 # PDF viewer
     nsxiv \                                   # Image viewer
     exa \                                     # ls but better
+    feh \                                     # Setup image background
+    pcmanfm \                                 # GUI File explorer
     conky htop                                # System monitoring
 ```
 
@@ -107,8 +109,19 @@ pacman -S \
     gnome-themes-extra \                         # GTK themes
     breeze \                                     # QT Themes
     xcursor-vanilla-dmz \                        # Cursor theme
-    ttf-dejavu gnu-free-fonts adobe-source-code-pro-fonts cantarell-fonts \
-    ttf-liberation ttf-bitstream-vera ttf-droid noto-fonts ttf-croscore ttf-ibm-plex
+    papirus-icon-theme \                         # Pretty icon theme
+
+    # Other fonts
+    ttf-dejavu \
+    gnu-free-fonts \
+    adobe-source-code-pro-fonts \
+    cantarell-fonts \
+    ttf-liberation \
+    ttf-bitstream-vera \
+    ttf-droid \
+    noto-fonts \
+    ttf-croscore \
+    ttf-ibm-plex
 ```
 
 Lastly, some additional packages I install outside the mainline arch repositories are:
