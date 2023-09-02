@@ -401,17 +401,17 @@ class MyWidgets:
 
         # Widget for icon battery
         config = dict(
-            **self.fonts["Icons"],
+            **self.fonts["Icons2"],
             # Formatting options
             format="{char}",
             show_short_text=False,
             padding=4,
             # Icons for each state
-            charge_char="󰂐",
-            full_char="󰂏",
+            charge_char="󱟦",
+            full_char="󱟦",
             empty_char="󰂎",
-            discharge_char="󱉝",
-            unknown_char="󰂏",
+            discharge_char="󱟤",
+            unknown_char="󰂑",
             # Other options
             update_interval=1,
             low_percentage=0.15,
