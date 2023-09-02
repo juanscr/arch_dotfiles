@@ -227,6 +227,8 @@ matches = {
         Match(wm_class="Stremio"),
         Match(wm_class="vlc"),
         Match(wm_class="qBittorrent"),
+        Match(title="Steam"),
+        Match(wm_class="steam"),
     ],
     # Configuration apps
     ws(7): [
@@ -563,6 +565,7 @@ middle_float = [
     Match(wm_class="Blueman-services"),
     Match(wm_class="Nm-connection-editor"),
     Match(wm_class="DBeaver", title=dbeaver_not_main_window_name),
+    Match(title="Steam", wm_class=""),
 ]
 floating_layout = Floating(
     float_rules=[
@@ -590,6 +593,7 @@ floating_layout = Floating(
         Match(wm_class="Options Editor"),
         Match(title="Close Firefox"),
         Match(wm_class="com-iscobol-gui-client-Client"),
+        Match(title="Friends List", wm_class="steam"),
         *zoom_rules,
         *middle_float,
     ],
