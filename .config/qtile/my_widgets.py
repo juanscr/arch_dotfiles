@@ -340,7 +340,7 @@ class MyWidgets:
         # Icon
         w_update_icon = TextBox(
             **self.fonts["Icons"],
-            text="ﮮ",
+            text="󰚰",
             foreground=self.colors["yellow"],
             padding=8,
         )
@@ -672,7 +672,7 @@ class MyWidgets:
             **self.fonts["Icons"],
             background=self.colors[background],
             foreground=self.colors["magenta"],
-            text="",
+            text="󰃠",
             padding=8,
         )
         return [widget_text, widget_brightness]

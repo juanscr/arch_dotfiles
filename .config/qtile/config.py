@@ -153,7 +153,7 @@ workspaces = [
     ["1", {"label": "", "layout": "stack"}],
     ["2", {"label": "", "layout": "monadtall"}],
     ["3", {"label": "", "layout": "stack"}],
-    ["4", {"label": "", "layout": "monadtall"}],
+    ["4", {"label": "", "layout": "monadtall"}],
     ["5", {"label": "", "layout": "stack"}],
     ["6", {"label": "", "layout": "stack"}],
     ["7", {"label": "", "layout": "stack"}],
