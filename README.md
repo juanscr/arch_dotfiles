@@ -43,8 +43,8 @@ And there you go. Happy tinkering!
 In this section, you will find some common steps that I use in my computer to have
 a fully working desktop experience. Although many of the information here can be found
 in the Arch Wiki, I know first hand it is difficult to take in all the information
-that the wiki presents at once; at such, the information here is summarized for a way
-easier consumption.
+that the wiki presents at once; as such, the information presented here is a quick
+summary of what I usually need to run on a freh installation of Arch.
 
 ### Installation Guide Annotations
 When running the pacstrap command, is common to forget some basic packages that are
