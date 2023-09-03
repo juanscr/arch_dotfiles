@@ -192,13 +192,14 @@ pages that cover how to configure it are:
 - [NVIDIA driver wiki](https://wiki.archlinux.org/title/NVIDIA).
 
 First, I installed the respective graphics driver for Nvidia and Intel with vulkan
-support (with their respective 32 bits from the
-[multib](https://wiki.archlinux.org/title/NVIDIA) repository):
+support (with their respective 32 bits libraries from the
+[multilib](https://wiki.archlinux.org/title/official_repositories#multilib)
+repository):
 
 ```
 pacman -S \
     nvidia nvidia-utils lib32-nvidia-utils \ # Nvidia
-    mesa lib32-mesa intel-media-driver \     # Intel
+    mesa intel-media-driver lib32-mesa \     # Intel
     vulkan-intel lib32-vulkan-intel \        # Vulkan
     nvidia-prime                             # Run with nvidia gpu
 ```
@@ -211,9 +212,9 @@ by:
 mkinitcpio -P
 ```
 
-After that, I created the `pacman` hook in order to always regenerate the iniramfs when
-updating the `nvidia` package. By that I created the `/etc/pacman.d/hooks/nvidia.hook`
-with:
+After that, I created the `pacman` hook in order to always regenerate the initramfs
+when updating the `nvidia` package. By that I created the
+`/etc/pacman.d/hooks/nvidia.hook` with:
 
 ```
 [Trigger]
@@ -236,4 +237,4 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; 
 Then, I executed a reboot to load the `nvidia` propietary driver. For veryfing that it
 worked as I expected, I did the following commands and got the correct output:
 
-![My Environment](.local/share/assets/prime-run-test.png)
+![Prime Test](.local/share/assets/prime-run-test.png)
