@@ -100,7 +100,7 @@ desktop environment look and feel. For that, I run:
 - `gnome-themes-extra`: GTK theme for Adwaita Dark.
 - `breeze`: QT Theme for Breeze Dark.
 - `xcursor-vanilla-dmz`: Cursor theme.
-- `papirus-icon-theme: `Pretty icon theme
+- `papirus-icon-theme`: Pretty icon theme
 - For other fonts, I install `ttf-dejavu`, `gnu-free-fonts`, `adobe-source-code-pro-fonts`, `cantarell-fonts`, `ttf-liberation`, `ttf-bitstream-vera`, `ttf-droid`, `noto-fonts`, `ttf-croscore`, `ttf-ibm-plex`.
 
 Lastly, some additional packages I install outside the mainline arch repositories are:
