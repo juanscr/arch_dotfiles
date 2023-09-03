@@ -10,4 +10,5 @@ packer_compiled.lua
 # Git sensitive configuration
 **/git/*
 !**/git/config.template
+!**/git/main-config.template
 

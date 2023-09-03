@@ -1,0 +1,8 @@
+[include]
+    path = ~/.config/git/config-main
+
+[includeIf "gitdir:~/folder-one/"]
+    path = ~/.config/git/config-one
+
+[includeIf "gitdir:~/documents/folder-two/"]
+    path = ~/.config/git/config-two
