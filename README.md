@@ -175,3 +175,65 @@ leapsectz right/UTC
 # INITIAL CLOCK CORRECTION
 makestep 1.0 3
 ```
+
+### Nvidia Optimus
+On my personal laptop, I have an integrated Intel Graphics card with a discrete Nvidia
+GeForce GTX 1050. This setup is common in laptops to improve battery life, by mostly
+using the intel graphics card and delivering the more intensive tasks to the nvidia
+card. Although the easiest route is to make the Nvidia card the default one and turn
+off the Intel one (which I used for many years), the battery life clocked below an
+hour and the computer had really high temperatures most of the time.
+
+For that, I switched to use PRIME GPU Offloading in order to just use the Nvidia GPU
+when needed (i.e., running steam and other intensive tasks). The related Arch wiki
+pages that cover how to configure it are:
+
+- [Prime Offload](https://wiki.archlinux.org/title/PRIME#PRIME_render_offload).
+- [NVIDIA driver wiki](https://wiki.archlinux.org/title/NVIDIA).
+
+First, I installed the respective graphics driver for Nvidia and Intel with vulkan
+support (with their respective 32 bits from the
+[multib](https://wiki.archlinux.org/title/NVIDIA) repository):
+
+```
+pacman -S \
+    nvidia nvidia-utils lib32-nvidia-utils \ # Nvidia
+    mesa lib32-mesa intel-media-driver \     # Intel
+    vulkan-intel lib32-vulkan-intel \        # Vulkan
+    nvidia-prime                             # Run with nvidia gpu
+```
+
+Then, I removed `kms` from the `HOOKS` key in `/etc/mkinitcpio.conf` to avoid booting
+with the `nouveau` module (open source nvidia driver). Then regenerate the initramfs
+by:
+
+```
+mkinitcpio -P
+```
+
+After that, I created the `pacman` hook in order to always regenerate the iniramfs when
+updating the `nvidia` package. By that I created the `/etc/pacman.d/hooks/nvidia.hook`
+with:
+
+```
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia
+Target=linux
+# Change the linux part above if a different kernel is used
+
+[Action]
+Description=Update NVIDIA module in initcpio
+Depends=mkinitcpio
+When=PostTransaction
+NeedsTargets
+Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+```
+
+Then, I executed a reboot to load the `nvidia` propietary driver. For veryfing that it
+worked as I expected, I did the following commands and got the correct output:
+
+![My Environment](.local/share/assets/prime-run-test.png)
