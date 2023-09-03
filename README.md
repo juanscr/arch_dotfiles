@@ -52,79 +52,59 @@ completely needed to have a fully working installation. For a minimal installati
 would add the following packages to be installed so when you log in to the TTY some
 basic functionality can be executed.
 
-```
-pacstrap -K /mnt \
-    base linux linux-firmware \ # Base packages
-    networkmanager \            # Network manager
-    neovim \                    # Neovim, text editor.
-    sudo \                      # Privilige escalation
-    grub efibootmgr \           # Boot loader
-    man-db man-pages texinfo \  # Package information
-    intel-ucode \               # Microcode for intel CPUs
-    openssh                     # SSH client
-```
+- `networkmanager`: Automatic configuration for network interfaces.
+- `sudo`: Privilige escalation.
+- `neovim`: Text editor.
+- `grub`: Boot loader, for uefi support install `efibootmgr`.
+- `man-db`, `man-pages`, `texinfo`: Package information.
+- `intel-ucode`: Microcode for intel CPUs.
+- `openssh`: SSH client.
 
 Additionaly, the packages that I selected to construct my fully customized desktop
 environment are:
 
-```
-pacman -S \
-    git \
-    base-devel \                              # AUR
-    network-manager-applet \                  # Tray icon for network manager
-    sddm \                                    # Display manager
-    qtile python-psutil python-dbus-next \    # Tiling window manager
-    dunst \                                   # Notification daemon
-    flameshot \                               # Screenshot tool
-    chromium \                                # Browser
-    pulseaudio pulseaudio-bluetooth pamixer \ # Audio manager
-    pavucontrol \                             # GUI for pulseaudio settings
-    arandr \                                  # UI for xrandr settings
-    autorandr \                               # Automatic xrandr configuration
-    blueman bluez bluez-utils \               # Bluetooth
-    polkit-gnome polkit \                     # Privilige escalation
-    playerctl \                               # Media controls
-    spotify-launcher \                        # Spotify media controller
-    vlc \                                     # Media player
-    alacritty \                               # Terminal
-    picom \                                   # Compositor for X11
-    chrony \                                  # NTP time syncing
-    xf86-input-libinput \                     # Touchpad customization
-    bash-completion \                         # Autocompletion in bash
-    hdparm \                                  # Set hard drive parameters
-    zathura \                                 # PDF viewer
-    nsxiv \                                   # Image viewer
-    exa \                                     # ls but better
-    feh \                                     # Setup image background
-    pcmanfm \                                 # GUI File explorer
-    conky htop                                # System monitoring
-```
+- `git`: Version control.
+- `base-devel`: AUR manager.
+- `network-manager-applet`: Tray icon for network manager.
+- `sddm`: Display manager.
+- `qtile`: Tilling window manager, for using my configuration also install `python-psutil` and `python-dbus-next`.
+- `dunst`: Notification daemon.
+- `flameshot`: Screenshot tool.
+- `chromium`: My preferred browser.
+- `pulseaudio`: Audio control, for bluetooth and cli management install respectively `pulseaudio-bluetooth` and `pamixer`.
+- `pavucontrol`: GUI for pulseaudio settings.
+- `arandr`: UI for xrandr settings.
+- `autorandr`: Automatic xrandr configuration by saving monitor configuration.
+- `blueman`, `bluez` and `bluez-utils`: Bluetooth support and tray management.
+- `polkit-gnome` and `polkit`: Privilige escalation.
+- `playerctl`: Media controls.
+- `spotify-launcher`: Spotify media launcher.
+- `vlc`: Media player.
+- `alacritty`: Rust terminal.
+- `picom`: Compositor for X11.
+- `chrony`: NTP time syncing.
+- `xf86-input-libinput`: Touchpad customization.
+- `bash-completion`: Autocompletion in bash.
+- `hdparm`: Set hard drive parameters.
+- `zathura`: PDF viewer.
+- `nsxiv`: Simple image viewer.
+- `exa`: ls but better.
+- `feh`: Setup image background.
+- `pcmanfm`: GUI File explorer.
+- `conky` and `htop`: System monitoring.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
 
-```
-pacman -S \
-    ttf-jetbrains-mono ttf-jetbrains-mono-nerd \ # Main fonts I use
-    gnome-themes-extra \                         # GTK themes
-    breeze \                                     # QT Themes
-    xcursor-vanilla-dmz \                        # Cursor theme
-    papirus-icon-theme \                         # Pretty icon theme
-
-    # Other fonts
-    ttf-dejavu \
-    gnu-free-fonts \
-    adobe-source-code-pro-fonts \
-    cantarell-fonts \
-    ttf-liberation \
-    ttf-bitstream-vera \
-    ttf-droid \
-    noto-fonts \
-    ttf-croscore \
-    ttf-ibm-plex
-```
+- `ttf-jetbrains-mono` and `ttf-jetbrains-mono-nerd`: Main fonts I use.
+- `gnome-themes-extra`: GTK theme for Adwaita Dark.
+- `breeze`: QT Theme for Breeze Dark.
+- `xcursor-vanilla-dmz`: Cursor theme.
+- `papirus-icon-theme: `Pretty icon theme
+- For other fonts, I install `ttf-dejavu`, `gnu-free-fonts`, `adobe-source-code-pro-fonts`, `cantarell-fonts`, `ttf-liberation`, `ttf-bitstream-vera`, `ttf-droid`, `noto-fonts`, `ttf-croscore`, `ttf-ibm-plex`.
 
 Lastly, some additional packages I install outside the mainline arch repositories are:
+
 - [yay](https://github.com/Jguer/yay): AUR package manager.
 - [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen): Beautiful lock screen.
 - [rate-mirrors](https://github.com/westandskif/rate-mirrors): Rate arch mirros for download speed.
@@ -198,10 +178,10 @@ repository):
 
 ```
 pacman -S \
-    nvidia nvidia-utils lib32-nvidia-utils \ # Nvidia
-    mesa intel-media-driver lib32-mesa \     # Intel
-    vulkan-intel lib32-vulkan-intel \        # Vulkan
-    nvidia-prime                             # Run with nvidia gpu
+    nvidia nvidia-utils lib32-nvidia-utils \
+    mesa intel-media-driver lib32-mesa \
+    vulkan-intel lib32-vulkan-intel \
+    nvidia-prime
 ```
 
 Then, I removed `kms` from the `HOOKS` key in `/etc/mkinitcpio.conf` to avoid booting
