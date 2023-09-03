@@ -307,7 +307,7 @@ keypads = [
     ("KP_Next", "pavucontrol"),
     ("KP_Left", "bitwarden-desktop"),
     ("KP_Begin", "dbeaver"),
-    ("KP_Right",),
+    ("KP_Right", f"{local_bin}/launchers/launch-steam.sh"),
     ("KP_Home",),
     ("KP_Up",),
     ("KP_Prior",),
