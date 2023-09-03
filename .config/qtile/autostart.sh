@@ -28,3 +28,6 @@ pcmanfm &
 
 # Applet
 blueman-applet &
+
+# Polkit authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
