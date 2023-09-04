@@ -12,3 +12,6 @@ packer_compiled.lua
 !**/git/config.template
 !**/git/main-config.template
 
+# Private dns information
+private-dns-variables.sh
+
