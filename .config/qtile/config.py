@@ -589,7 +589,7 @@ floating_layout = Floating(
         Match(wm_class="flameshot", title="Configuration"),
         Match(wm_class="Inkscape", title="Preferences"),
         Match(wm_class="mpv", title=re.compile("^(?!synthwave)")),
-        Match(wm_class="Sxiv"),
+        Match(wm_class="Nsxiv"),
         Match(wm_class="Options Editor"),
         Match(title="Close Firefox"),
         Match(wm_class="com-iscobol-gui-client-Client"),
