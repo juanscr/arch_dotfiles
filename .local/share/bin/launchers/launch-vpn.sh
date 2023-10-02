@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo true;
-sudo openfortivpn -c /etc/openfortivpn/config &
+sudo openfortivpn -c /etc/openfortivpn/config --pppd-accept-remote &
 PID=$!
 sleep 5
 source ~/.local/share/bin/launchers/private-dns-variables.sh
