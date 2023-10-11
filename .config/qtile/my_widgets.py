@@ -19,7 +19,7 @@ from libqtile.widget.mpris2widget import Mpris2
 from libqtile.widget.spacer import Spacer
 from libqtile.widget.systray import Systray
 from libqtile.widget.textbox import TextBox
-from libqtile.widget.volume import Volume
+from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.widgetbox import WidgetBox
 from libqtile.widget.window_count import WindowCount
 
@@ -309,7 +309,6 @@ class MyWidgets:
         widget_layout = CurrentLayoutIcon(
             custom_icon_paths=[eu("~/.config/qtile/icons")],
             scale=0.5,
-            padding=-5,
             foreground=self.colors["green"],
         )
 
@@ -486,7 +485,7 @@ class MyWidgets:
 
         Requirements
         ------------
-        - pamixer
+        - python-pulsectl-asyncio
 
         Returns
         -------
@@ -495,24 +494,22 @@ class MyWidgets:
         """
 
         # Widget for volume
-        widget_volume = Volume(
+        widget_volume_icon = PulseVolume(
+            **self.fonts["Icons"],
+            # Colors
+            foreground=self.colors["cyan"],
+            background=self.colors["background"],
+            emoji=True,
+            emoji_list=["󰸈", "", "󰕾", ""]
+        )
+
+        widget_volume = PulseVolume(
             **self.fonts["Normal"],
             # Colors
             foreground=self.colors["cyan"],
             background=self.colors["background"],
-            # Volume command
-            get_volume_command="/home/juanscr/.config/qtile/" + "get_volume_qtile.sh",
-            mute_command="pamixer -t",
-            volume_down_command="pamixer -d 5",
-            volume_up_command="pamixer -i 5",
         )
-
-        # Icon for volume
-        icon_volume = TextBox(
-            **self.fonts["Icons"], foreground=self.colors["cyan"], text="", padding=8
-        )
-
-        return [icon_volume, widget_volume]
+        return [widget_volume_icon, widget_volume]
 
     @add_mirror
     @add_separation(space=10)
@@ -538,10 +535,12 @@ class MyWidgets:
         widget_spotify = Mpris2(
             **self.fonts["Normal"],
             foreground=self.colors["foreground"],
-            display_metadata=["xesam:title", "xesam:artist"],
+            format="{xesam:title}, {xesam:artist} ({xesam:album})",
             objname="org.mpris.MediaPlayer2.spotify",
-            scroll=False,
-            max_chars=max_length,
+            scroll=True,
+            width=max_length * 7,
+            scroll_step=1,
+            scroll_interval=0.05,
             paused_text="{track}",
         )
 

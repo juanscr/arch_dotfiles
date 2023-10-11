@@ -1,7 +1,7 @@
 # =============================================== #
 #                                                 #
 #                                                 #
-#              qtile 0.22.1 config                #
+#              qtile 0.23.0 config                #
 #                                                 #
 # =============================================== #
 
@@ -33,10 +33,9 @@ terminal = f"{local_bin}/launchers/launch-terminal.sh"
 
 # ============ Basic Behavior ============
 keys = [
-    # Close window
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    # Restart qtile
-    Key([mod, "shift"], "r", lazy.restart(), desc="Restart qtile"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload config qtile"),
+    Key([mod, "control", "shift"], "r", lazy.reload_config(), desc="Reload config qtile"),
     # Lock screen
     Key(
         [mod, "shift"], "x", lazy.spawn("betterlockscreen -l blur"), desc="Lock screen."
@@ -641,9 +640,9 @@ def resize_floating_windows(window: Window) -> None:
         screen = window.qtile.current_screen
         if window.group is not None and window.group.screen is not None:
             screen = window.group.screen
-        size = window.cmd_get_size()
+        size = window.get_size()
         x, y = screen.x, screen.y
-        window.cmd_set_position_floating(
+        window.set_position_floating(
             x + int((screen.width - size[0]) / 2),
             y + int((screen.height - size[1]) / 2),
         )
