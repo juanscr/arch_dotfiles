@@ -500,7 +500,8 @@ class MyWidgets:
             foreground=self.colors["cyan"],
             background=self.colors["background"],
             emoji=True,
-            emoji_list=["󰸈", "", "󰕾", ""]
+            emoji_list=["󰸈", "", "󰕾", ""],
+            padding=4
         )
 
         widget_volume = PulseVolume(
@@ -699,7 +700,7 @@ class MyWidgets:
             foreground=self.colors["blue"],
             text_closed="",
             text_open=" ",
-            padding=8,
+            padding=3,
         )
         return [space_first, box]
 
