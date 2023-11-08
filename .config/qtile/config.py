@@ -593,6 +593,7 @@ floating_layout = Floating(
         Match(title="Close Firefox"),
         Match(wm_class="com-iscobol-gui-client-Client"),
         Match(title="Friends List", wm_class="steam"),
+        Match(wm_class="Anydesk"),
         *zoom_rules,
         *middle_float,
     ],
