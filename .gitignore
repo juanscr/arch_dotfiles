@@ -15,3 +15,6 @@ packer_compiled.lua
 # Private dns information
 private-dns-variables.sh
 
+# Private bash config
+.config/secure_bashrc
+
