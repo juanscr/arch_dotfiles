@@ -336,7 +336,7 @@ keys += [
         "z",
         lazy.spawn(
             "mpv --cache=no " +
-            "https://www.youtube.com/watch?v=MVPTGNGiI-4"
+            "https://www.youtube.com/live/4xDzrJKXOOY?si=jFYI1lISG7iCN2Q1"
         ),
         desc="Launch spotify"
     ),
