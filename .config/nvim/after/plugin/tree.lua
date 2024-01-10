@@ -34,6 +34,7 @@ require("nvim-tree").setup({
     },
     filters = {
       dotfiles = true,
+      git_ignored = false,
     },
     on_attach = on_attach,
     update_focused_file = {
