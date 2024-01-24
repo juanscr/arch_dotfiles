@@ -16,7 +16,7 @@ export PATH=$PATH:$HOME/.local/share/cargo/bin
 alias n="nvim"
 
 # Latex
-alias lmk="latexmk -pdf"
+alias lmk="latexmk -pdf -output-directory=build"
 alias lmks="lmk -shell-escape"
 
 # Allows for using alias with sudo
@@ -36,7 +36,8 @@ alias autoremove='pacman -Qtdq | sudo pacman -Rns -'
 alias untar='tar xf'
 
 # Movies related stuff
-alias movie-mode='xset s off -dpms'
+alias movie-mode='xset s off -dpms && remotemouse'
+alias movie-mode-off='xset s 3600 3600 && killall remotemouse RemoteMouse'
 
 # Update python
 awkCom='{ match ($0, ".*==", a); gsub ("=", "", a[0]); print a[0] }'
