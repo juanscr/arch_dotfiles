@@ -13,6 +13,7 @@ export PATH=$PATH:$HOME/.local/share/cargo/bin
 
 # ============ ALIASES ============ #
 # Editor
+alias nvim="nvim --listen /tmp/nvim.pipe"
 alias n="nvim"
 
 # Latex
@@ -160,3 +161,6 @@ fi
 if [ -f "$HOME/.config/secure_bashrc" ]; then
     source $HOME/.config/secure_bashrc
 fi
+
+# Export theme variable
+export CURRENT_THEME="$(cat ~/.local/share/.user_current_theme || echo 'dark')"
