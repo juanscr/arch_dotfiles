@@ -1,17 +1,18 @@
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero').preset({})
+-- LSP configuration
+local lsp = require('lsp-zero')
+
+-- Autocompletion settings
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<CR>'] = cmp.mapping.confirm({select = true}),
-    ["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select)
-})
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select)
+    })
 })
 
+-- Keybinds
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({
         buffer = bufnr,
@@ -39,5 +40,30 @@ lsp.format_on_save({
   }
 })
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-lsp.setup()
+-- Automatic installation of lsp servers
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        "rust_analyzer",
+        "pyright",
+        "bashls",
+        "dockerls",
+        "eslint",
+        "html",
+        "jsonls",
+        "tsserver",
+        "tailwindcss",
+        "taplo",
+        "texlab",
+        "sqlls",
+        "volar",
+        "yamlls"
+    },
+    handlers = {
+        lsp.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+    },
+})

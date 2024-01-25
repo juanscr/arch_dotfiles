@@ -1,57 +1,89 @@
--- Packer installation
-vim.cmd [[packadd packer.nvim]]
-
--- Packages dependencies
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-
+-- lazy.nvim setup
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
     -- Dracula theme
-    use 'Mofiqul/dracula.nvim'
+    'Mofiqul/dracula.nvim',
 
     -- Solarized theme
-    use 'shaunsingh/solarized.nvim'
+    'shaunsingh/solarized.nvim',
 
-    -- Improve coloring of source code
-    use {
-          'nvim-treesitter/nvim-treesitter',
-          run = ':TSUpdate'
-    }
-
-    -- File explorer
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons'
-        },
-        config = function()
-            require("nvim-tree").setup {}
+    -- Treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function ()
+            local configs = require("nvim-treesitter.configs")
+              configs.setup({
+                  ensure_installed = {
+                     "lua",
+                     "vim",
+                     "vimdoc",
+                     "python",
+                     "sql",
+                     "typescript",
+                     "javascript",
+                     "html",
+                     "rust",
+                     "latex"
+                 },
+                  sync_install = false,
+                  highlight = { enable = true },
+                  indent = { enable = true },
+                })
         end
-    }
+    },
 
-    -- LSP Configuration
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        requires = {
-                -- LSP Support
-                {'neovim/nvim-lspconfig'},             -- Required
-                {'williamboman/mason.nvim'},           -- Optional
-                {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    -- LSP Zero configuration
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/nvim-cmp'},
+    {'L3MON4D3/LuaSnip'},
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
 
-                -- Autocompletion
-                {'hrsh7th/nvim-cmp'},     -- Required
-                {'hrsh7th/cmp-nvim-lsp'}, -- Required
-                {'L3MON4D3/LuaSnip'},     -- Required
-        }
-    }
+    -- Fuzy Finder
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
-    -- Magit similar
-    use {
-        'NeogitOrg/neogit',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'sindrets/diffview.nvim',
-        },
-        config = true
+    -- Tree explorer
+    {
+      "nvim-tree/nvim-tree.lua",
+      version = "*",
+      lazy = false,
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("nvim-tree").setup {}
+      end,
+    },
+
+    -- Magit alike
+    {
+      "NeogitOrg/neogit",
+      dependencies = {
+        "nvim-lua/plenary.nvim",         -- required
+        "sindrets/diffview.nvim",        -- optional - Diff integration
+
+        -- Only one of these is needed, not both.
+        "nvim-telescope/telescope.nvim", -- optional
+        "ibhagwan/fzf-lua",              -- optional
+      },
+      config = true
     }
-end)
+})
