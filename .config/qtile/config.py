@@ -202,12 +202,9 @@ matches = {
     ws(4): [
         Match(wm_class="jetbrains-pycharm-ce"),
         Match(wm_class="jetbrains-idea-ce"),
-        Match(wm_class="java-lang-Thread"),
         Match(wm_class="Eclipse"),
         Match(wm_class="Lunacy"),
-        Match(title="win0", wm_class="jetbrains-idea-ce"),
         Match(wm_class="code-oss"),
-        Match(wm_class="DBeaver"),
         force_match["lis_cobol"],
     ],
     # Social
@@ -243,6 +240,8 @@ matches = {
         Match(wm_class="beekeeper-studio"),
         Match(wm_class=OPENFORTIVPN),
         Match(wm_class="org.remmina.Remmina"),
+        Match(wm_class="DBeaver"),
+        Match(wm_class="java-lang-Thread"),
     ],
     # Background apps
     ws(8): [
