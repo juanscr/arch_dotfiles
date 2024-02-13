@@ -204,7 +204,7 @@ matches = {
         Match(wm_class="jetbrains-idea-ce"),
         Match(wm_class="Eclipse"),
         Match(wm_class="Lunacy"),
-        Match(wm_class="code-oss"),
+        Match(wm_class="Code"),
         force_match["lis_cobol"],
     ],
     # Social
