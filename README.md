@@ -224,3 +224,26 @@ Then, I executed a reboot to load the `nvidia` propietary driver. For veryfing t
 worked as I expected, I did the following commands and got the correct output:
 
 ![Prime Test](.local/share/assets/prime-run-test.png)
+
+### Solid State Drives
+In my personal and work laptop, I posses an NVMe SSD. Arch Linux has whole sections
+in their wiki dedicated to optimizing and taking care of the solid states drives that I
+suggest you read by yourself as it has a lot of content to parse. In this section,
+you'll find a little summary of what commands do I run to take care and optimize
+my SSD.
+
+In first place, I activate TRIM. At first, verify if the SSD supports TRIM by running
+the following command:
+
+```bash
+lsblk --discard
+```
+
+Verifying that the `DISC-GRAN` and `DISC-MAX` have non-zero values which means
+it supports TRIM operations. After that, if the values are non-zero, active a
+periodic trim by using the following commands:
+
+```bash
+sudo pacman -S util-linux
+systemctl enable --now fstrim.timer
+```
