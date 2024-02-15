@@ -35,6 +35,7 @@ usability, stop showing files not uploaded to git.
 alias dfiles="/usr/bin/git --git-dir=path/to/repository --work-tree=$HOME"
 dfiles config status.showUntrackedFiles no
 dfiles restore --staged .
+dfiles checkout .
 ```
 
 And there you go. Happy tinkering!
