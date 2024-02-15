@@ -97,6 +97,7 @@ environment are:
 - `pacman-contrib`: Includes scripts for checking updates in pacman.
 - `xclip`: Paperclip management tool, necessary for copy-pasting to clipboard
   in vim.
+- `fprintd` and `imagemagick`: Fingerprint authentication.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
