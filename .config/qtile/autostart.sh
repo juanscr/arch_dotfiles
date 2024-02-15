@@ -34,6 +34,6 @@ blueman-applet &
 
 # Autorun slack
 hostname=$(hostnamectl hostname)
-if [ $hostname = "juanscr-acer-laptop" ]; then
+if [ $hostname = "dell-juanscr" ]; then
     slack &
 fi
