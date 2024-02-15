@@ -91,6 +91,7 @@ environment are:
 - `nsxiv`: Simple image viewer.
 - `exa`: ls but better.
 - `feh`: Setup image background.
+- `xorg-xrdb`: Set main color scheme in X11.
 - `pcmanfm`: GUI File explorer.
 - `conky` and `htop`: System monitoring.
 
