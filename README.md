@@ -112,6 +112,7 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 - [networkmanager-dispatcher-chrony](https://aur.archlinux.org/packages/networkmanager-dispatcher-chrony): Dispatch time sync to chrony when online.
 - [qt5ct-kde](https://aur.archlinux.org/packages/qt5ct-kde): QT5ct for improved KDE compatibility.
 - [dmenu](https://github.com/juanscr/dmenu): My own custom fork of dmenu.
+- [python-pulsectl-asyncio](https://aur.archlinux.org/packages/python-pulsectl-asyncio): Necessary for running my qtile installation.
 
 ### Time Internet Synching
 When I first did my Arch installation I notice that, as time passed on, the clock that
