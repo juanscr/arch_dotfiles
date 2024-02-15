@@ -20,6 +20,7 @@ function on_attach(bufnr)
     vim.keymap.set("n", "fr", api.fs.rename, opts("Rename"))
     vim.keymap.set('n', 'fp', api.fs.paste, opts('Paste'))
     vim.keymap.set('n', 'fy', api.fs.cut, opts('Copy Name'))
+    vim.keymap.set('n', 'fdd', api.fs.remove, opts('Remove file'))
 
     -- Node operations
     vim.keymap.set('n', '<CR>',  api.node.open.edit, opts("Open"))

@@ -6,7 +6,6 @@ function SetColorScheme(color)
     )
     if theme_handler ~= nil then
         local current_theme = theme_handler:read()
-        print(current_theme)
         theme_handler:close()
         if current_theme == "dark" then
             default_color = "dracula"
