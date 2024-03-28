@@ -249,3 +249,126 @@ periodic trim by using the following commands:
 sudo pacman -S util-linux
 systemctl enable --now fstrim.timer
 ```
+### Logitech Mouse Customization
+I have a [Logitech G3000s](https://www.logitechg.com/en-eu/products/
+gaming-mice/g300s-gaming-mouse.910-004345.html) mouse. This mouse has some colors to
+switch through by default and it can be customized to have different colors.
+Additionally, it has some custom buttons that allow to be customized.
+
+Using the `ratslap` command, the color and buttons can be set. To changing the
+color to red and having the two middle buttons to change between tabs use:
+
+```bash
+sudo ratslap \
+      --modify F3 \
+      --colour red \
+      --G8 LeftCtrl+PageUp \
+      --G9 LeftCtrl+PageDown \
+      --print F3 \
+      --select F3
+```
+
+### Touchpad Configuration
+For configuring the touchpad for a more natural behavior, the `libinput` package was
+used as is the currently use package for managing input devices; for making it work in
+Xorg run the following command:
+
+``` bash
+sudo pacman -S xf86-input-libinput
+```
+
+And restart the graphical environment so the devices are now managed by libinput. Then,
+to configure the touchpad for the following features:
+
+- Tapping for left click.
+- Tapping with two fingers for right click.
+- Tapping with three fingers for middle click (paste).
+- Natural scrolling, similar to windows.
+
+Create the file `/etc/X11/xorg.conf.d/30-touchpad.conf` and write:
+
+```
+Section "InputClass"
+    Identifier "libinput touchpad catchall"
+    MatchIsTouchpad "on"
+    MatchDevicePath "/dev/input/event*"
+    Driver "libinput"
+    Option "Tapping" "on"
+    Option "ClickMethod" "clickfinger"
+    Option "NaturalScrolling" "true"
+EndSection
+```
+
+And then restart your computer to reload xorg.
+
+### Keyboard Layout Configuration
+For my personal laptop, I use the following configuration for my keyboard layout:
+- The US keyboard layout as I find the best one for programming.
+- The `altgr-intl` variant in order to write in spanish easily and quickly.
+- The Caps Lock and Escape keys are swapped in order for improved VIM-like usage.
+
+For setting this in an Xorg server, use the following command:
+
+```
+localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
+```
+
+### XDG Base Directory Specification
+The XDG Base Directory Specification is a directory specification which hopes to protect
+the user home directory from being spammed with multiple unnecessary directories that
+are used to store data and configuration from multiple apps.
+[Read the specification here.]\
+(https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+
+For complying with the standard, set the following variables in the file
+`/etc/profile.d/xdg_compliance.sh`:
+
+```
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+```
+
+Other global variables I set for multiple other apps for complying with the
+specification are:
+
+```
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
+export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf;"
+export ASPELL_CONF="${ASPELL_CONF} personal $XDG_CONFIG_HOME/aspell/en.pws;"
+export ASPELL_CONF="${ASPELL_CONF} repl $XDG_CONFIG_HOME/aspell/en.prepl;"
+
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+```
+
+### QT5 Platform
+For configuring the QT5 applications, I use `qt5ct` which allows for configuration to
+the platform similar as `lxapperance` to the X11 server. In this manner, to configure
+the QT apps `qt5ct` write the following file `/etc/profile.d/qt5_vars.sh`:
+
+```
+export QT_QPA_PLATFORMTHEME=qt5ct
+```
+
