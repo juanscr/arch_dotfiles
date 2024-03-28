@@ -51,6 +51,12 @@ summary of what I usually need to run on a freh installation of Arch.
 - [Packages I use in my desktop](#installation-guide)
 - [Sync time with chrony](#internet-sync)
 - [Configure nvidia optimus](#nvidia-optimus)
+- [Take care of your SDDs](#sdds)
+- [Configure Logitech Mouse](#logitech-mouse)
+- [Configure touchpad for better usability](#touchpad)
+- [Configure keyboard](#keyboard)
+- [Tidy your home directory](#xdg)
+- [Improve look of qt5 apps](#qt5-platform)
 
 <a name="installation-guide"></a>
 ### Installation Guide Annotations
@@ -235,6 +241,7 @@ worked as I expected, I did the following commands and got the correct output:
 
 ![Prime Test](.local/share/assets/prime-run-test.png)
 
+<a name="sdds"></a>
 ### Solid State Drives
 In my personal and work laptop, I posses an NVMe SSD. Arch Linux has whole sections
 in their wiki dedicated to optimizing and taking care of the solid states drives that I
@@ -257,6 +264,8 @@ periodic trim by using the following commands:
 sudo pacman -S util-linux
 systemctl enable --now fstrim.timer
 ```
+
+<a name="logitech-mouse"></a>
 ### Logitech Mouse Customization
 I have a [Logitech G3000s](https://www.logitechg.com/en-eu/products/
 gaming-mice/g300s-gaming-mouse.910-004345.html) mouse. This mouse has some colors to
@@ -276,6 +285,7 @@ sudo ratslap \
       --select F3
 ```
 
+<a name="touchpad"></a>
 ### Touchpad Configuration
 For configuring the touchpad for a more natural behavior, the `libinput` package was
 used as is the currently use package for managing input devices; for making it work in
@@ -309,6 +319,7 @@ EndSection
 
 And then restart your computer to reload xorg.
 
+<a name="keyboard"></a>
 ### Keyboard Layout Configuration
 For my personal laptop, I use the following configuration for my keyboard layout:
 - The US keyboard layout as I find the best one for programming.
@@ -321,6 +332,7 @@ For setting this in an Xorg server, use the following command:
 localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
 ```
 
+<a name="xdg"></a>
 ### XDG Base Directory Specification
 The XDG Base Directory Specification is a directory specification which hopes to protect
 the user home directory from being spammed with multiple unnecessary directories that
@@ -371,6 +383,7 @@ export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
 ```
 
+<a name="qt5-platform"></a>
 ### QT5 Platform
 For configuring the QT5 applications, I use `qt5ct` which allows for configuration to
 the platform similar as `lxapperance` to the X11 server. In this manner, to configure
