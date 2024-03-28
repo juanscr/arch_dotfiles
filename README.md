@@ -47,6 +47,12 @@ in the Arch Wiki, I know first hand it is difficult to take in all the informati
 that the wiki presents at once; as such, the information presented here is a quick
 summary of what I usually need to run on a freh installation of Arch.
 
+### Table of Contents
+- [Packages I use in my desktop](#installation-guide)
+- [Sync time with chrony](#internet-sync)
+- [Configure nvidia optimus](#nvidia-optimus)
+
+<a name="installation-guide"></a>
 ### Installation Guide Annotations
 When running the pacstrap command, is common to forget some basic packages that are
 completely needed to have a fully working installation. For a minimal installation, I
@@ -120,6 +126,7 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 - [dmenu](https://github.com/juanscr/dmenu): My own custom fork of dmenu.
 - [python-pulsectl-asyncio](https://aur.archlinux.org/packages/python-pulsectl-asyncio): Necessary for running my qtile installation.
 
+<a name="internet-sync"></a>
 ### Time Internet Synching
 When I first did my Arch installation I notice that, as time passed on, the clock that
 was showing on my desktop was slowly getting out of sync of the real time. That occured
@@ -164,6 +171,7 @@ leapsectz right/UTC
 makestep 1.0 3
 ```
 
+<a name="nvidia-optimus"></a>
 ### Nvidia Optimus
 On my personal laptop, I have an integrated Intel Graphics card with a discrete Nvidia
 GeForce GTX 1050. This setup is common in laptops to improve battery life, by mostly
