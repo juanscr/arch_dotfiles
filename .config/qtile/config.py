@@ -307,7 +307,7 @@ keypads = [
     ("KP_Begin", "dbeaver"),
     ("KP_Right", f"{local_bin}/launchers/launch-steam.sh"),
     ("KP_Home", "slack"),
-    ("KP_Up",),
+    ("KP_Up", "telegram-desktop"),
     ("KP_Prior",),
 ]
 keypads_keys = [
