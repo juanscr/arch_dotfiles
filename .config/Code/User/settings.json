@@ -35,5 +35,6 @@
   },
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "prettier.trailingComma": "all"
 }
