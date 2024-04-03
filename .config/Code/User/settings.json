@@ -36,5 +36,6 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "editor.wordWrap": "on",
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "python.analysis.autoImportCompletions": true
 }
