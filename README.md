@@ -97,7 +97,7 @@ environment are:
 - `picom`: Compositor for X11.
 - `chrony`: NTP time syncing.
 - `xf86-input-libinput`: Touchpad customization.
-- `bash-completion`: Autocompletion in bash.
+- `zsh`, `zsh-autosuggestions`, `zsh-syntax-highlighting`: Use `zsh` shell with good autocompeltion and syntax highlighting.
 - `hdparm`: Set hard drive parameters.
 - `zathura`: PDF viewer.
 - `nsxiv`: Simple image viewer.
