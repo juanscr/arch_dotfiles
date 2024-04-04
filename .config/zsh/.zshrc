@@ -1,16 +1,3 @@
-# ISCOBOL
-export ISCOBOL=/home/juanscr/programs/isCOBOL2019R2
-export ISCOBOL_JDK_ROOT=/usr/lib/jvm/java-8-openjdk
-export LD_LIBRARY_PATH=$ISCOBOL/native/lib
-export PATH=$ISCOBOL/bin:$PATH
-
-# ============ PATH CHANGES ============ #
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:$HOME/.local/share/bin
-export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/share/cargo/bin
-
 # ============ ALIASES ============ #
 # Editor
 alias nvim="nvim --listen /tmp/nvim.pipe"
@@ -102,54 +89,47 @@ alias update-all='export TMPFILE="$(mktemp)"; \
       && drop-caches \
       && yay -Syyu --noconfirm'
 
-# ==== Global Variables ==== #
-export BROWSER="/usr/bin/chromium"
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-export npm_config_prefix="$HOME/.local"
-
-# ============ BASH Terminal ============ #
-# ==== Minimalist Prompt ==== #
-# Colors
-GREEN="\[\e[01;32m\]"
-BLUE="\[\e[01;34m\]"
-RESET="\[\e[00m\]"
-
-# Git branch
-source /usr/share/git/completion/git-prompt.sh
-PS1="${GREEN}\$(__git_ps1 '(%s) ')${RESET}"
-
-# Working directory
-PS1+="${BLUE}\W${RESET} > "
-
 # ==== Keybindings ==== #
 # Function for interactive shell
 function is_interactive_shell() {
   [[ "$-" =~ "i" ]]
 }
 
-# Fix for root bind warning
-# http://gurdiga.com/blog/2018/04/14/bind-warning-line-editing-not-enabled/
-if is_interactive_shell; then
-  bind '"\ew": forward-word'
-  bind '"\eb": backward-word'
-  bind '"\eh": backward-char'
-  bind '"\el": forward-char'
-  bind '"\e$": end-of-line'
-  bind '"\e0": beginning-of-line'
+# === Prompt === #
+# VCS Info loading for git information
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
 
-  bind '"\en": next-history'
-  bind '"\ep": previous-history'
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+# Prompt
+GREEN="%F{#50FA7B}"
+BLUE="%F{#BD93F9}"
+RESET="%f"
+PS1="%B${GREEN}\$(git_branch_name)${RESET}${BLUE}%1d ${RESET}%b> "
+
+# History parameters
+HISTFILE="$XDG_CONFIG_HOME/zsh/.zshhistory"
+HISTSIZE=2000
+SAVEHIST=1000
+setopt extendedglob notify
+
+# Private aliases
+if [ -f "$ZDOTDIR/.secure_aliases" ]; then
+    source $ZDOTDIR/.secure_aliases
 fi
 
-# ==== History settings ==== #
-HISTSIZE=1000
-HISTFILESIZE=2000
-shopt -s histappend
-HISTCONTROL=ignoreboth
 
-# ==== Resizing ==== #
-shopt -s checkwinsize
-
+# SSH Agent autostart
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
@@ -157,10 +137,31 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
-# Private aliases
-if [ -f "$HOME/.config/secure_bashrc" ]; then
-    source $HOME/.config/secure_bashrc
+
+# Autocompletion
+zstyle :compinstall filename "$XDG_CONFIG_HOME/zsh/.zshrc"
+autoload -Uz compinit
+compinit
+
+# Plugin for better completion
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+export ZSH_AUTOSUGGEST_MANUAL_REBIND="manual"
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Plugin for syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Fix for root bind warning
+# http://gurdiga.com/blog/2018/04/14/bind-warning-line-editing-not-enabled/
+if is_interactive_shell; then
+  bindkey "\ew" forward-word
+  bindkey "\eb" backward-word
+  bindkey "\eh" backward-char
+  bindkey "\el" forward-char
+  bindkey "\e$" end-of-line
+  bindkey "\e0" beginning-of-line
+  bindkey "\en" next-history
+  bindkey "\ep" previous-history
+  bindkey '^ ' autosuggest-accept
 fi
 
-# Export theme variable
-export CURRENT_THEME="$(cat ~/.local/share/.user_current_theme || echo 'dark')"

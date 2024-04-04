@@ -99,10 +99,6 @@ multiplier = 2
 [selection]
 save_to_clipboard = true
 
-[shell]
-args = ["-i"]
-program = "/bin/bash"
-
 [window]
 decorations = "none"
 dynamic_padding = false
