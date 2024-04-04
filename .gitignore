@@ -16,5 +16,5 @@ packer_compiled.lua
 private-dns-variables.sh
 
 # Private bash config
-.config/secure_bashrc
+.secure_aliases
 
