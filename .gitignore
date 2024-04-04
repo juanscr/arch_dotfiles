@@ -15,6 +15,7 @@ packer_compiled.lua
 # Private dns information
 private-dns-variables.sh
 
-# Private bash config
+# Private files
 .secure_aliases
-
+.zshhistory
+.zcompdump
