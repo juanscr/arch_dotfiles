@@ -164,8 +164,8 @@ if is_interactive_shell; then
   bindkey "\el" forward-char
   bindkey "\e$" end-of-line
   bindkey "\e0" beginning-of-line
-  bindkey "\en" next-history
-  bindkey "\ep" previous-history
+  bindkey "\en" down-history
+  bindkey "\ep" up-history
   bindkey '^ ' autosuggest-accept
 fi
 
