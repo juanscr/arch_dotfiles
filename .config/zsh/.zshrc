@@ -140,8 +140,12 @@ fi
 
 # Autocompletion
 zstyle :compinstall filename "$XDG_CONFIG_HOME/zsh/.zshrc"
-autoload -Uz compinit
+autoload -Uz compinit bashcompinit
 compinit
+bashcompinit
+
+# AWS completion
+complete -C '/usr/bin/aws_completer' aws
 
 # Plugin for better completion
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
