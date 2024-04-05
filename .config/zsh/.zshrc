@@ -115,7 +115,7 @@ setopt prompt_subst
 GREEN="%F{#50FA7B}"
 BLUE="%F{#BD93F9}"
 RESET="%f"
-PS1="%B${GREEN}\$(git_branch_name)${RESET}${BLUE}%1d ${RESET}%b> "
+PS1="%B${GREEN}\$(git_branch_name)${RESET}${BLUE}%1~ ${RESET}%b> "
 
 # History parameters
 HISTFILE="$XDG_CONFIG_HOME/zsh/.zshhistory"
