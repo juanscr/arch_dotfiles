@@ -55,8 +55,6 @@ summary of what I usually need to run on a freh installation of Arch.
 - [Configure Logitech Mouse](#logitech-mouse)
 - [Configure touchpad for better usability](#touchpad)
 - [Configure keyboard](#keyboard)
-- [Tidy your home directory](#xdg)
-- [Improve look of qt5 apps](#qt5-platform)
 
 <a name="installation-guide"></a>
 ### Installation Guide Annotations
@@ -330,66 +328,5 @@ For setting this in an Xorg server, use the following command:
 
 ```
 localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
-```
-
-<a name="xdg"></a>
-### XDG Base Directory Specification
-The XDG Base Directory Specification is a directory specification which hopes to protect
-the user home directory from being spammed with multiple unnecessary directories that
-are used to store data and configuration from multiple apps.
-[Read the specification here.]\
-(https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-
-For complying with the standard, set the following variables in the file
-`/etc/profile.d/xdg_compliance.sh`:
-
-```
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_DATA_HOME="$HOME"/.local/share
-```
-
-Other global variables I set for multiple other apps for complying with the
-specification are:
-
-```
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-
-export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
-
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-
-export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf;"
-export ASPELL_CONF="${ASPELL_CONF} personal $XDG_CONFIG_HOME/aspell/en.pws;"
-export ASPELL_CONF="${ASPELL_CONF} repl $XDG_CONFIG_HOME/aspell/en.prepl;"
-
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
-
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
-
-export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
-
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
-
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-
-export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
-export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
-```
-
-<a name="qt5-platform"></a>
-### QT5 Platform
-For configuring the QT5 applications, I use `qt5ct` which allows for configuration to
-the platform similar as `lxapperance` to the X11 server. In this manner, to configure
-the QT apps `qt5ct` write the following file `/etc/profile.d/qt5_vars.sh`:
-
-```
-export QT_QPA_PLATFORMTHEME=qt5ct
 ```
 
