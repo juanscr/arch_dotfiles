@@ -34,8 +34,7 @@ require("lazy").setup({
                      "typescript",
                      "javascript",
                      "html",
-                     "rust",
-                     "latex"
+                     "rust"
                  },
                   sync_install = false,
                   highlight = { enable = true },
@@ -60,18 +59,8 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
-    -- Tree explorer
-    {
-      "nvim-tree/nvim-tree.lua",
-      version = "*",
-      lazy = false,
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("nvim-tree").setup {}
-      end,
-    },
+    -- Icons for files
+    'nvim-tree/nvim-web-devicons',
 
     -- Magit alike
     {

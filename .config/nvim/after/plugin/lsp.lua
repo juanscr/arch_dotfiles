@@ -1,6 +1,9 @@
 -- LSP configuration
 local lsp = require('lsp-zero')
 
+-- Telescope for references
+local builtin = require('telescope.builtin')
+
 -- Autocompletion settings
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -20,13 +23,13 @@ lsp.on_attach(function(client, bufnr)
     })
 
     local opts = {buffer=bufnr, remap = false}
-    vim.keymap.set("n", "<leader>lod", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "<leader>lor", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>ldo", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>ldn", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "<leader>ldp", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>ldo", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<leader>len", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "<leader>lep", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<leader>leo", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "<leader>lcn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set('n', '<leader>lro', builtin.lsp_references, {})
 end)
 
 -- Format on Save
