@@ -121,6 +121,7 @@ PS1="%B${GREEN}\$(git_branch_name)${RESET}${BLUE}%1~ ${RESET}%b> "
 HISTFILE="$XDG_CONFIG_HOME/zsh/.zshhistory"
 HISTSIZE=2000
 SAVEHIST=1000
+setopt hist_ignore_all_dups
 setopt extendedglob notify
 
 # Private aliases
