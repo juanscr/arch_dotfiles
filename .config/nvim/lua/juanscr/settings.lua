@@ -33,10 +33,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.cmd.match("TrailingSpaces /\\s\\+$/")
 vim.cmd.highlight("TrailingSpaces ctermbg=red guibg=red")
 
--- disable netrw at the very start of your init.lua (nvim-tree suggestion)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Set workspace to first openned file
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
     pattern = { "*" },
