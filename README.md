@@ -109,6 +109,7 @@ environment are:
   in vim.
 - `fprintd` and `imagemagick`: Fingerprint authentication.
 - `thermald`: Prevent overheating in intel CPUs.
+- `tree-sitter-cli`: CLI for treesitter parsers.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
