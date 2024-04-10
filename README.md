@@ -55,6 +55,7 @@ summary of what I usually need to run on a freh installation of Arch.
 - [Configure Logitech Mouse](#logitech-mouse)
 - [Configure touchpad for better usability](#touchpad)
 - [Configure keyboard](#keyboard)
+- [Improve look of qt5 apps](#qt5-platform)
 
 <a name="installation-guide"></a>
 ### Installation Guide Annotations
@@ -331,3 +332,12 @@ For setting this in an Xorg server, use the following command:
 localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
 ```
 
+<a name="qt5-platform"></a>
+### QT5 Platform
+For configuring the QT5 applications, I use `qt5ct` which allows for configuration to
+the platform similar as `lxapperance` to the X11 server. In this manner, to configure
+the QT apps `qt5ct` write the following file `/etc/profile.d/qt5_vars.sh`:
+
+```
+export QT_QPA_PLATFORMTHEME=qt5ct
+```

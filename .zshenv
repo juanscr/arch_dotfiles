@@ -36,15 +36,11 @@ export npm_config_prefix="$HOME/.local"
 export R_HOME_USER="$XDG_CONFIG_HOME/R"
 export R_PROFILE_USER="$XDG_CONFIG_HOME/R/profile"
 export R_HISTFILE="$XDG_CONFIG_HOME/R/history"
-
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 
 # Other variables
 export BROWSER="/usr/bin/chromium"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-
-# QT5 variables
-export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Configuration for other ZSH config file
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
