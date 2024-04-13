@@ -216,6 +216,7 @@ matches = {
         Match(wm_class="whatsapp-nativefier-d40211"),
         Match(wm_class="TelegramDesktop"),
         Match(wm_class="Signal"),
+        Match(wm_class="Binance"),
     ],
     # Media
     ws(6): [
@@ -236,6 +237,7 @@ matches = {
         Match(wm_class="Nvidia-settings"),
         Match(wm_class="Bitwarden"),
         Match(wm_class="qt5ct"),
+        Match(wm_class="qt6ct"),
         Match(wm_class="v4l2ucp"),
         Match(wm_class="beekeeper-studio"),
         Match(wm_class=OPENFORTIVPN),
