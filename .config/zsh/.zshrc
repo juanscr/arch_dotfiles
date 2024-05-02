@@ -10,6 +10,9 @@ alias lmks="lmk -shell-escape"
 # Allows for using alias with sudo
 alias sudo="sudo "
 
+# Image viewer
+alias i="nsxiv"
+
 # Edit files with sudo privileges
 alias se='SUDO_EDITOR="nvim" sudoedit'
 
