@@ -32,11 +32,8 @@ blueman-applet &
 # Polkit authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Telegram
-telegram-desktop &
-
-# Autorun slack
+# Autorun telegram
 hostname=$(hostnamectl hostname)
 if [ $hostname = "dell-juanscr" ]; then
-    slack &
+    telegram-desktop &
 fi
