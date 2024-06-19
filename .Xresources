@@ -39,6 +39,7 @@
 *.color7:       #BFBFBF
 *.color15:      #E6E6E6
 
-! Cursor themesj
+! Cursor themes
 Xcursor.theme: Vanilla-DMZ
 Xcursor.size:  20
+
