@@ -37,3 +37,12 @@ hostname=$(hostnamectl hostname)
 if [ $hostname = "dell-juanscr" ]; then
     telegram-desktop &
 fi
+
+# Set flags for spotify launcher
+if [[ `echo "$XDG_SESSION_TYPE"` == "x11" ]]; then
+    rm ~/.config/spotify-launcher.conf
+else
+    echo "[spotify]
+extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wayland\"]" \
+    > ~/.config/spotify-launcher.conf
+fi
