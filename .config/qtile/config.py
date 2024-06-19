@@ -9,8 +9,9 @@ import re
 import subprocess
 from os.path import expanduser as eu
 
-from libqtile import bar, hook
+from libqtile import bar, hook, qtile
 from libqtile.backend.base import Window
+from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.layout.floating import Floating
 from libqtile.layout.stack import Stack
@@ -293,6 +294,16 @@ border = 2
 # Gaps
 gaps = 10
 
+# ========== Input configuration (Wayland only) ========== #
+wl_input_rules = {
+    "type:keyboard": InputConfig(
+        kb_layout="us", kb_variant="altgr-intl", kb_options="caps:swapescape"
+    ),
+    "type:touchpad": InputConfig(
+        click_method="clickfinger", natural_scroll=True, tap_button_map="lrm"
+    )
+}
+
 # ========== Application behavior ========== #
 # _____ Add keybinds for keypads _____ #
 keypads = [
@@ -382,13 +393,12 @@ def get_number_of_monitors() -> int:
     """
 
     try:
-        output = subprocess.check_output(
+        return int(subprocess.check_output(
             eu("~/.config/qtile/check_number_of_monitors.sh"), shell=True
-        ).decode()[:-1]
+        ).decode()[:-1])
+
     except subprocess.SubprocessError:
         return 0
-
-    return int(output)
 
 
 n_monitor = get_number_of_monitors()
