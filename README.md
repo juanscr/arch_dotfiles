@@ -126,7 +126,7 @@ For `wayland` support, I use the following packages:
 - `wl-clipboard`: Clipboard management.
 - `python-pywlroots`: Python interface for WL roots protocol, needed for qtile
 to run on wayland.
-- `xdg-desktop-portal-wlr`: Screen sharing with pipewire.
+- `xdg-desktop-portal` and `xdg-desktop-portal-wlr`: Screen sharing with pipewire.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
