@@ -77,42 +77,56 @@ environment are:
 
 - `git`: Version control.
 - `base-devel`: AUR manager.
-- `network-manager-applet`: Tray icon for network manager.
 - `sddm`: Display manager.
-- `qtile`: Tilling window manager, for using my configuration also install `python-psutil` and `python-dbus-next`.
 - `dunst`: Notification daemon.
-- `flameshot`: Screenshot tool.
 - `chromium`: My preferred browser.
-- `pulseaudio`: Audio control, for bluetooth and cli management install respectively `pulseaudio-bluetooth` and `pamixer`.
-- `pavucontrol`: GUI for pulseaudio settings.
-- `arandr`: UI for xrandr settings.
-- `autorandr`: Automatic xrandr configuration by saving monitor configuration.
 - `blueman`, `bluez` and `bluez-utils`: Bluetooth support and tray management.
 - `polkit-gnome` and `polkit`: Privilige escalation.
 - `playerctl`: Media controls.
 - `spotify-launcher`: Spotify media launcher.
 - `vlc`: Media player.
 - `alacritty`: Rust terminal.
-- `picom`: Compositor for X11.
 - `chrony`: NTP time syncing.
-- `xf86-input-libinput`: Touchpad customization.
-- `zsh`, `zsh-autosuggestions`, `zsh-syntax-highlighting`: Use `zsh` shell with good autocompeltion and syntax highlighting.
+- `zsh`, `zsh-autosuggestions`, `zsh-syntax-highlighting`: Use `zsh` shell with
+good autocompeltion and syntax highlighting.
 - `hdparm`: Set hard drive parameters.
 - `zathura`: PDF viewer.
-- `nsxiv`: Simple image viewer.
 - `exa`: ls but better.
-- `feh`: Setup image background.
-- `xorg-xrdb`: Set main color scheme in X11.
-- `pcmanfm`: GUI File explorer.
-- `conky` and `htop`: System monitoring.
-- `pacman-contrib`: Includes scripts for checking updates in pacman.
-- `xclip`: Paperclip management tool, necessary for copy-pasting to clipboard
-  in vim.
+- `htop`: System monitoring.
+- `pacman-contrib`: Includes scripts for checking updates in pacman. in vim.
 - `fprintd` and `imagemagick`: Fingerprint authentication.
 - `thermald`: Prevent overheating in intel CPUs.
 - `tree-sitter-cli`: CLI for treesitter parsers.
 - `ripgrep` and `fd`: Toolkit necessary for telescope to work.
 - `acpilight`: Brightness control.
+- `pipewire`, `pipewire-audio`, `pipewire-pulse`, `wireplumber`: Audio
+management through pipewire and pulseaudio.
+- `pavucontrol`: GUI for handling audio settings.
+
+For `X11` support, I use the following packages:
+- `network-manager-applet`: Tray icon for network manager.
+- `qtile`: Tilling window manager, for using my configuration also install
+`python-psutil` and `python-dbus-next`.
+- `flameshot`: Screenshot tool.
+- `arandr`: UI for xrandr settings.
+- `autorandr`: Automatic xrandr configuration by saving monitor configuration.
+- `picom`: Compositor for X11.
+- `xf86-input-libinput`: Touchpad customization.
+- `nsxiv`: Simple image viewer.
+- `feh`: Setup image background.
+- `xorg-xrdb`: Set main color scheme in X11.
+- `pcmanfm`: GUI File explorer.
+- `conky`: System monitoring.
+- `xclip`: Paperclip management tool, necessary for copy-pasting to clipboard
+in vim.
+
+For `wayland` support, I use the following packages:
+- `sway`: Tilling window manager.
+- `sway-lock`: Lock screen for wayland.
+- `wl-clipboard`: Clipboard management.
+- `python-pywlroots`: Python interface for WL roots protocol, needed for qtile
+to run on wayland.
+- `xdg-desktop-portal-wlr`: Screen sharing with pipewire.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
@@ -127,7 +141,7 @@ desktop environment look and feel. For that, I run:
 Lastly, some additional packages I install outside the mainline arch repositories are:
 
 - [yay](https://github.com/Jguer/yay): AUR package manager.
-- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen): Beautiful lock screen.
+- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen): Beautiful lock screen for X11.
 - [rate-mirrors](https://github.com/westandskif/rate-mirrors): Rate arch mirros for download speed.
 - [networkmanager-dispatcher-chrony](https://aur.archlinux.org/packages/networkmanager-dispatcher-chrony): Dispatch time sync to chrony when online.
 - [qt5ct-kde](https://aur.archlinux.org/packages/qt5ct-kde): QT5ct for improved KDE compatibility.
