@@ -9,9 +9,8 @@ import re
 import subprocess
 from os.path import expanduser as eu
 
-from libqtile import bar, hook, qtile
+from libqtile import bar, hook
 from libqtile.backend.base import Window
-from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.layout.floating import Floating
 from libqtile.layout.stack import Stack
@@ -231,7 +230,7 @@ matches = {
     # Configuration apps
     ws(7): [
         Match(wm_class="Arandr"),
-        Match(wm_class="Pavucontrol"),
+        Match(wm_class="pavucontrol"),
         Match(wm_class="Lxappearance"),
         Match(wm_class="Lightdm-settings"),
         Match(wm_class="Font-manager"),
@@ -293,16 +292,6 @@ border = 2
 
 # Gaps
 gaps = 10
-
-# ========== Input configuration (Wayland only) ========== #
-wl_input_rules = {
-    "type:keyboard": InputConfig(
-        kb_layout="us", kb_variant="altgr-intl", kb_options="caps:swapescape"
-    ),
-    "type:touchpad": InputConfig(
-        click_method="clickfinger", natural_scroll=True, tap_button_map="lrm"
-    )
-}
 
 # ========== Application behavior ========== #
 # _____ Add keybinds for keypads _____ #
