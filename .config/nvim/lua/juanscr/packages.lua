@@ -74,5 +74,8 @@ require("lazy").setup({
         "ibhagwan/fzf-lua",              -- optional
       },
       config = true
-    }
+    },
+
+    -- Automatically detect indentation
+    "nmac427/guess-indent.nvim"
 })
