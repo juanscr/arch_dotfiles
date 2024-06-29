@@ -9,4 +9,4 @@ if [[ `echo "$XDG_SESSION_TYPE"` == "x11" ]]; then
     exit 0;
 fi
 
-alacritty -o=font.size=16 "$@"
+alacritty "$@"
