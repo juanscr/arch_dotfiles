@@ -121,12 +121,11 @@ For `X11` support, I use the following packages:
 in vim.
 
 For `wayland` support, I use the following packages:
-- `sway`: Tilling window manager.
-- `sway-lock`: Lock screen for wayland.
+- `hyprland`: Tilling window manager.
 - `wl-clipboard`: Clipboard management.
-- `python-pywlroots`: Python interface for WL roots protocol, needed for qtile
-to run on wayland.
-- `xdg-desktop-portal` and `xdg-desktop-portal-wlr`: Screen sharing with pipewire.
+- `xdg-desktop-portal` and `xdg-desktop-portal-hyprland`: Screen sharing with pipewire.
+- `tofi`: Application launcher for wayland.
+- `waybar`: Status bar.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
