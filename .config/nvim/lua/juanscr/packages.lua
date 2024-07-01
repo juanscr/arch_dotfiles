@@ -77,5 +77,11 @@ require("lazy").setup({
     },
 
     -- Automatically detect indentation
-    "nmac427/guess-indent.nvim"
+    "nmac427/guess-indent.nvim",
+
+    -- Format files with specific tools
+    {
+      'stevearc/conform.nvim',
+      opts = {},
+    }
 })

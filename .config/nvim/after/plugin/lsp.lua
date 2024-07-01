@@ -32,17 +32,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', '<leader>lro', builtin.lsp_references, {})
 end)
 
--- Format on Save
-lsp.format_on_save({
-  format_opts = {
-    async = false,
-    timeout_ms = 10000,
-  },
-  servers = {
-    ['pyright'] = {'python'},
-  }
-})
-
 -- Automatic installation of lsp servers
 require('mason').setup({})
 require('mason-lspconfig').setup({
