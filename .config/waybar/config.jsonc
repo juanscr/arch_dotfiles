@@ -1,21 +1,18 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    // Size of bar
+    "height": 30,
+    "spacing": 4,
+
+    // Modules in bar
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap"
     ],
-    "modules-center": [
-        "hyprland/window"
-    ],
+    "modules-center": [],
     "modules-right": [
-        "mpd",
-        "idle_inhibitor",
+        "mpris",
+        "custom/sepPulseAudio",
         "pulseaudio",
         "network",
         "power-profiles-daemon",
@@ -24,29 +21,80 @@
         "temperature",
         "backlight",
         "keyboard-state",
-        "hyprland/language",
         "battery",
         "battery#bat2",
         "clock",
         "tray"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+
+    // Configure workspaces
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "move-to-monitor": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": ""
+        }
+    },
+
+    // Configure submap (key chord)
+    "hyprland/submap": {
+        "format": " {} "
+    },
+
+    // Configure mpris to render spotify
+    "mpris": {
+        "dynamic-order": ["title", "artist", "album"],
+        "dynamic-len": 30,
+        "format": "<span font='24px' rise='-4500'></span> {dynamic} "
+    },
+
+    // Audio display
+    "custom/sepPulseAudio": {
+        "format": "|",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}<span font='24px' rise='-4500'></span> {format_source}",
+        "format-bluetooth-muted": "{volume}% {icon}<span font='24px' rise='-4500'></span> {format_source}",
+        "format-muted": "{volume}% {icon} {format_source}",
+        "format-source": "{volume}% <span font='24px' rise='-4500'></span>",
+        "format-source-muted": "<span font='24px' rise='-4500'></span>",
+        "format-icons": {
+            "headphone": "<span font='24px' rise='-4500'></span>",
+            "hdmi": "<span font='24px' rise='-4500'>󰡁</span>",
+            "default": [
+                "<span font='24px' rise='-4500'></span>",
+                "<span font='24px' rise='-4500'></span>",
+                "<span font='24px' rise='-4500'></span>"
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    // System tray
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+    // Clock
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -88,15 +136,6 @@
             "activated": "",
             "deactivated": ""
         }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -155,24 +194,5 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
     }
 }
