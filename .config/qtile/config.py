@@ -195,6 +195,7 @@ matches = {
         Match(wm_class="Zathura"),
         Match(wm_class="Gimp"),
         Match(wm_class="Pcmanfm"),
+        Match(wm_class="Com.github.xournalpp.xournalpp"),
         force_match["gephi"],
         force_match["gephi_start"],
     ],
