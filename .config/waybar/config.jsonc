@@ -14,6 +14,8 @@
         "mpris",
         "custom/sepPulseAudio",
         "pulseaudio",
+        "custom/sepWindow",
+        "hyprland/window",
         "custom/sepUpdates",
         "custom/updates",
         "custom/sepBattery",
@@ -79,6 +81,17 @@
             ]
         },
         "on-click": "pavucontrol"
+    },
+
+    // Window module
+    "custom/sepWindow": {
+        "format": "|",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "icon": true,
+        "icon-size": 16,
+        "separate-outputs": true
     },
 
     // Check updates module

@@ -70,6 +70,18 @@
     color: @red;
 }
 
+/* Window */
+@define-color window @green;
+#custom-sepWindow {
+    color: @window;
+}
+
+#window {
+    padding: 0 10px;
+    color: @window;
+}
+
+
 /* Pacman configuration */
 @define-color updates @yellow;
 #custom-sepUpdates {
