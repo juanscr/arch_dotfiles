@@ -104,6 +104,11 @@
     color: @battery;
 }
 
+#battery.charging {
+    color: @battery;
+    border-bottom: 2px solid @battery;
+}
+
 @keyframes blink {
     to {
         background-color: @foreground;
