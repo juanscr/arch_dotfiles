@@ -1,0 +1,53 @@
+// -*- mode: jsonc -*-
+[
+    {
+        "height": 30,
+        "spacing": 4,
+        "output": "DP-1",
+
+        // Modules in bar
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/submap"
+        ],
+        "modules-center": ["clock"],
+        "modules-right": [
+            "mpris",
+            "custom/sepPulseAudio",
+            "pulseaudio",
+            "custom/sepWindow",
+            "hyprland/window",
+            "custom/sepUpdates",
+            "custom/updates",
+            "custom/sepBattery",
+            "battery",
+            "custom/sepTray",
+            "tray"
+        ],
+        "include": [
+		    "~/.config/waybar/modules.jsonc"
+	    ]
+    },
+    {
+        "height": 30,
+        "spacing": 4,
+        "output": "!DP-1",
+
+        // Modules in bar
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/submap"
+        ],
+        "modules-center": ["clock"],
+        "modules-right": [
+			"cpu",
+            "custom/sepMemory",
+			"memory",
+            "custom/sepBacklight",
+            "backlight"
+        ],
+        "include": [
+		    "~/.config/waybar/modules.jsonc"
+	    ]
+    }
+]

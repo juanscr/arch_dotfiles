@@ -1,0 +1,31 @@
+// -*- mode: jsonc -*-
+{
+    "height": 30,
+    "spacing": 4,
+
+    // Modules in bar
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "mpris",
+        "custom/sepPulseAudio",
+        "pulseaudio",
+        "custom/sepWindow",
+        "hyprland/window",
+        "custom/sepUpdates",
+        "custom/updates",
+        "custom/sepBattery",
+        "battery",
+        "group/hardware",
+        "custom/sepClock",
+        "clock",
+        "custom/sepTray",
+        "tray"
+    ],
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ]
+}
