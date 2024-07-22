@@ -13,11 +13,14 @@ creating your own. My desktop is mainly built by:
 
 - [Qtile](https://github.com/qtile/qtile): A highly customizable tilling window manager
 written in python.
-- [Alacritty](https://github.com/alacritty/alacritty): A fast terminal emulator written
-in rust.
+- [Hyrpland](https://github.com/hyprwm/Hyprland): Dynamic tiling Wayland
+compositor based on wlroots that doesn't sacrifice on its looks.
+- [Alacritty](https://github.com/alacritty/alacritty): A fast terminal emulator
+written in rust.
 - [Nvim](https://github.com/neovim/neovim): A fork of text editor vim improving
 maintenaibility and extensability of the original project.
-- [Dracula](https://github.com/dracula): A dark color scheme focused on usability.
+- [Dracula](https://github.com/dracula): A dark color scheme focused on
+usability.
 
 And many more to compose a full desktop experience.
 
@@ -146,6 +149,7 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 - [qt5ct-kde](https://aur.archlinux.org/packages/qt5ct-kde): QT5ct for improved KDE compatibility.
 - [dmenu](https://github.com/juanscr/dmenu): My own custom fork of dmenu.
 - [python-pulsectl-asyncio](https://aur.archlinux.org/packages/python-pulsectl-asyncio): Necessary for running my qtile installation.
+- [waybar-updates](https://aur.archlinux.org/packages/waybar-updates): Show pacman and aur updates on status bar.
 
 <a name="internet-sync"></a>
 ### Time Internet Synching
