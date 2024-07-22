@@ -105,9 +105,9 @@ good autocompeltion and syntax highlighting.
 - `pipewire`, `pipewire-audio`, `pipewire-pulse`, `wireplumber`: Audio
 management through pipewire and pulseaudio.
 - `pavucontrol`: GUI for handling audio settings.
+- `network-manager-applet`: Tray icon for network manager.
 
 For `X11` support, I use the following packages:
-- `network-manager-applet`: Tray icon for network manager.
 - `qtile`: Tilling window manager, for using my configuration also install
 `python-psutil` and `python-dbus-next`.
 - `flameshot`: Screenshot tool.
@@ -129,13 +129,13 @@ For `wayland` support, I use the following packages:
 - `xdg-desktop-portal` and `xdg-desktop-portal-hyprland`: Screen sharing with pipewire.
 - `tofi`: Application launcher for wayland.
 - `waybar`: Status bar.
+- `nwg-look`: For setting the GTK themes in WLR compositors.
 
 On the other hand, I install fonts, gtk and qt themes so I can highly customize my
 desktop environment look and feel. For that, I run:
 
 - `ttf-jetbrains-mono` and `ttf-jetbrains-mono-nerd`: Main fonts I use.
-- `gnome-themes-extra`: GTK theme for Adwaita Dark.
-- `breeze`: QT Theme for Breeze Dark.
+- `breeze` and `breeze-gtk`: QT Theme for Breeze Dark.
 - `xcursor-vanilla-dmz`: Cursor theme.
 - `papirus-icon-theme`: Pretty icon theme
 - For other fonts, I install `ttf-dejavu`, `gnu-free-fonts`, `adobe-source-code-pro-fonts`, `cantarell-fonts`, `ttf-liberation`, `ttf-bitstream-vera`, `ttf-droid`, `noto-fonts`, `ttf-croscore`, `ttf-ibm-plex`.
@@ -146,10 +146,10 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 - [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen): Beautiful lock screen for X11.
 - [rate-mirrors](https://github.com/westandskif/rate-mirrors): Rate arch mirros for download speed.
 - [networkmanager-dispatcher-chrony](https://aur.archlinux.org/packages/networkmanager-dispatcher-chrony): Dispatch time sync to chrony when online.
-- [qt5ct-kde](https://aur.archlinux.org/packages/qt5ct-kde): QT5ct for improved KDE compatibility.
 - [dmenu](https://github.com/juanscr/dmenu): My own custom fork of dmenu.
 - [python-pulsectl-asyncio](https://aur.archlinux.org/packages/python-pulsectl-asyncio): Necessary for running my qtile installation.
 - [waybar-updates](https://aur.archlinux.org/packages/waybar-updates): Show pacman and aur updates on status bar.
+- [grimshot](https://aur.archlinux.org/packages/grimshot): Flameshot-like functionality for wayland.
 
 <a name="internet-sync"></a>
 ### Time Internet Synching
@@ -353,10 +353,10 @@ localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
 
 <a name="qt5-platform"></a>
 ### QT5 Platform
-For configuring the QT5 applications, I use `qt5ct` which allows for configuration to
-the platform similar as `lxapperance` to the X11 server. In this manner, to configure
-the QT apps `qt5ct` write the following file `/etc/profile.d/qt5_vars.sh`:
+For configuring the QT applications, I use the `breeze-dark` theme, which allows
+a uniform look betwewn GTK and QT as I also use Breeze in GTK. For setting it, I create
+the file `/etc/profile.d/qt5_vars.sh` and write:
 
 ```
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=breeze-dark
 ```
