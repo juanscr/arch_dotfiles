@@ -118,7 +118,7 @@ For `X11` support, I use the following packages:
 - `nsxiv`: Simple image viewer.
 - `feh`: Setup image background.
 - `xorg-xrdb`: Set main color scheme in X11.
-- `pcmanfm`: GUI File explorer.
+- `pcmanfm-gtk3`: GUI File explorer.
 - `conky`: System monitoring.
 - `xclip`: Paperclip management tool, necessary for copy-pasting to clipboard
 in vim.
@@ -150,6 +150,7 @@ Lastly, some additional packages I install outside the mainline arch repositorie
 - [python-pulsectl-asyncio](https://aur.archlinux.org/packages/python-pulsectl-asyncio): Necessary for running my qtile installation.
 - [waybar-updates](https://aur.archlinux.org/packages/waybar-updates): Show pacman and aur updates on status bar.
 - [grimshot](https://aur.archlinux.org/packages/grimshot): Flameshot-like functionality for wayland.
+- [qt5ct-kde](https://aur.archlinux.org/packages/qt5ct-kde): Configure QT apps outside KDE.
 
 <a name="internet-sync"></a>
 ### Time Internet Synching
@@ -353,10 +354,10 @@ localectl --no-convert set-x11-keymap us evdev altgr-intl caps:swapescape
 
 <a name="qt5-platform"></a>
 ### QT5 Platform
-For configuring the QT applications, I use the `breeze-dark` theme, which allows
-a uniform look betwewn GTK and QT as I also use Breeze in GTK. For setting it, I create
-the file `/etc/profile.d/qt5_vars.sh` and write:
+For configuring the QT applications, I use the `qt5ct` to configure the theme. This
+was the only way I could get the configuration to work. Create the following file
+`/etc/profile.d/qt5_vars.sh` and write the following:
 
 ```
-export QT_STYLE_OVERRIDE=breeze-dark
+export QT_QPA_PLATFORMTHEME=qt5ct
 ```
