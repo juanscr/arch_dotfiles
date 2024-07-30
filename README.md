@@ -80,7 +80,7 @@ environment are:
 
 - `git`: Version control.
 - `base-devel`: AUR manager.
-- `sddm`: Display manager.
+- `gdm`: Display manager.
 - `dunst`: Notification daemon.
 - `chromium`: My preferred browser.
 - `blueman`, `bluez` and `bluez-utils`: Bluetooth support and tray management.
