@@ -3,6 +3,16 @@
 alias nvim="nvim --listen /tmp/nvim.pipe"
 alias n="nvim"
 
+# VS Code launcher
+function launchCode() {
+    if [[ `echo "$XDG_SESSION_TYPE"` == "x11" ]]; then
+        code "$@"
+        return;
+    fi
+    code --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
+}
+alias c="launchCode"
+
 # Latex
 alias lmk="latexmk -pdf -output-directory=build"
 alias lmks="lmk -shell-escape"
