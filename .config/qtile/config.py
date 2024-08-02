@@ -304,7 +304,7 @@ keypads = [
         "FortiVPN",
     ),
     ("KP_End", "discord"),
-    ("KP_Down", "arandr"),
+    ("KP_Down", "signal-desktop"),
     ("KP_Next", "pavucontrol"),
     ("KP_Left", "bitwarden-desktop"),
     ("KP_Begin", "dbeaver"),
