@@ -1,24 +1,51 @@
 #!/usr/bin/sh
 
-# Screen, background and conky
-autorandr --change --force &
+function launchApps() {
+    if [[ `echo "$XDG_SESSION_TYPE"` == "x11" ]]; then
+        launchX11Apps &
+        return;
+    fi
 
-# Compositor
-picom &
+    launchWaylandApps &
+}
+
+function launchX11Apps() {
+    # Screen, background and conky
+    autorandr --change --force &
+
+    # Compositor
+    picom &
+
+    # Tray icons
+    flameshot &
+    discord &
+
+    # Aesthetics
+    xrdb "$HOME"/.config/X11/Xresources &
+
+    # Spotify launchar flags
+    rm ~/.config/spotify-launcher.conf
+}
+
+function launchWaylandApps() {
+    # Discord
+    discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
+
+    # Spotify launcher
+    echo "[spotify]
+extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wayland\"]" \
+    > ~/.config/spotify-launcher.conf
+}
+
 
 # Tray icons
-flameshot &
 nm-applet &
-discord &
 
 # Browser
 chromium &
 
 # Terminal
 "$HOME"/.local/share/bin/launchers/launch-terminal.sh &
-
-# Aesthetics
-xrdb "$HOME"/.config/X11/Xresources &
 
 # Notification daemon
 dunst &
@@ -33,16 +60,7 @@ blueman-applet &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Autorun telegram
-hostname=$(hostnamectl hostname)
-if [ $hostname = "dell-juanscr" ]; then
-    telegram-desktop &
-fi
+telegram-desktop &
 
-# Set flags for spotify launcher
-if [[ `echo "$XDG_SESSION_TYPE"` == "x11" ]]; then
-    rm ~/.config/spotify-launcher.conf
-else
-    echo "[spotify]
-extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wayland\"]" \
-    > ~/.config/spotify-launcher.conf
-fi
+# Launch other applications depending on environment
+launchApps &
