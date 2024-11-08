@@ -102,6 +102,12 @@ alias update-all='export TMPFILE="$(mktemp)"; \
       && drop-caches \
       && yay -Syyu --noconfirm'
 
+# Mount ntfs filesystem
+alias mountNtfs='mount -t ntfs3'
+
+# Add subtitles to file
+alias addSubMp4='ffmpeg -i $1 -f srt -i $2 -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s mov_text -metadata:s:s:0 language=Spanish $3'
+
 # ==== Keybindings ==== #
 # Function for interactive shell
 function is_interactive_shell() {
