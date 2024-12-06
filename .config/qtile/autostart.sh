@@ -25,9 +25,6 @@ function launchX11Apps() {
 
     # Spotify launchar flags
     rm ~/.config/spotify-launcher.conf
-
-    # Visual studio code flags
-    rm ~/.config/Code/code-flags.conf
 }
 
 function launchWaylandApps() {
@@ -38,11 +35,6 @@ function launchWaylandApps() {
     echo "[spotify]
 extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wayland\"]" \
     > ~/.config/spotify-launcher.conf
-
-    # VS Code flags
-    echo "--enable-features=UseOzonePlatform
---ozone-platform=wayland" \
-    > ~/.config/Code/code-flags.conf
 }
 
 
