@@ -45,7 +45,7 @@
         "format-source-muted": "<span font='24px' rise='-4500'></span>",
         "format-icons": {
             "headphone": "<span font='24px' rise='-4500'></span>",
-            "hdmi": "<span font='24px' rise='-4500'>󰡁</span>",
+            "hdmi": "<span font='24px' rise='-4500'></span>",
             "default": [
                 "<span font='24px' rise='-4500'></span>",
                 "<span font='24px' rise='-4500'></span>",
