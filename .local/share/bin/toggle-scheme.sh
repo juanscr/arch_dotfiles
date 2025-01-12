@@ -16,6 +16,10 @@ if [[ "$CURRENT_THEME" == "dark" ]]; then
     cp ~/.local/share/bin/assets/light-gsettings ~/.local/share/nwg-look/gsettings && \
         nwg-look -a
 
+    # Change bar
+    ln -sf ~/.local/share/bin/assets/solarized-style.css ~/.config/waybar/style.css && \
+        ~/.config/waybar/launch-waybar.sh
+
 else
     export CURRENT_THEME="dark"
 
@@ -32,6 +36,10 @@ else
     # NWG Shell for all other apps
     cp ~/.local/share/bin/assets/dark-gsettings ~/.local/share/nwg-look/gsettings && \
         nwg-look -a
+
+    # Change bar
+    ln -sf ~/.local/share/bin/assets/dracula-style.css ~/.config/waybar/style.css && \
+        ~/.config/waybar/launch-waybar.sh
 fi
 
 echo $CURRENT_THEME > ~/.local/share/.user_current_theme
