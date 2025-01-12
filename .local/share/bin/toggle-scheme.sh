@@ -20,6 +20,11 @@ if [[ "$CURRENT_THEME" == "dark" ]]; then
     ln -sf ~/.local/share/bin/assets/solarized-style.css ~/.config/waybar/style.css && \
         ~/.config/waybar/launch-waybar.sh
 
+    # VSCode
+    settingsTempFile=(tempfile)
+    jq '.["workbench.colorTheme"] = "Solarized Light+"' ~/.config/Code/User/settings.json > $settingsTempFile
+    mv $settingsTempFile ~/.config/Code/User/settings.json
+
 else
     export CURRENT_THEME="dark"
 
@@ -40,6 +45,11 @@ else
     # Change bar
     ln -sf ~/.local/share/bin/assets/dracula-style.css ~/.config/waybar/style.css && \
         ~/.config/waybar/launch-waybar.sh
+
+    # VSCode
+    settingsTempFile=(tempfile)
+    jq '.["workbench.colorTheme"] = "Dracula Theme"' ~/.config/Code/User/settings.json > $settingsTempFile
+    mv $settingsTempFile ~/.config/Code/User/settings.json
 fi
 
 echo $CURRENT_THEME > ~/.local/share/.user_current_theme
