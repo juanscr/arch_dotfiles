@@ -48,7 +48,7 @@ In this section, you will find some common steps that I use in my computer to ha
 a fully working desktop experience. Although many of the information here can be found
 in the Arch Wiki, I know first hand it is difficult to take in all the information
 that the wiki presents at once; as such, the information presented here is a quick
-summary of what I usually need to run on a freh installation of Arch.
+summary of what I usually need to run on a fresh installation of Arch.
 
 ### Table of Contents
 - [Packages I use in my desktop](#installation-guide)
@@ -287,10 +287,11 @@ systemctl enable --now fstrim.timer
 
 <a name="logitech-mouse"></a>
 ### Logitech Mouse Customization
-I have a [Logitech G3000s](https://www.logitechg.com/en-eu/products/
-gaming-mice/g300s-gaming-mouse.910-004345.html) mouse. This mouse has some colors to
-switch through by default and it can be customized to have different colors.
-Additionally, it has some custom buttons that allow to be customized.
+I have a [Logitech
+G3000s](https://www.logitechg.com/en-eu/products/gaming-mice/g300s-gaming-mouse.910-004345.html)
+mouse. This mouse has some colors to switch through by default and it can be
+customized to have different colors. Additionally, it has some custom buttons
+that allow to be customized.
 
 Using the `ratslap` command, the color and buttons can be set. To changing the
 color to red and having the two middle buttons to change between tabs use:
