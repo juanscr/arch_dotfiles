@@ -47,6 +47,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
 # Path chages
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:$HOME/.local/share/bin
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:$HOME/.local/bin
