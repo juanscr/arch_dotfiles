@@ -13,9 +13,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.rulers": [
-    88
-  ],
+  "editor.rulers": [88],
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -39,5 +37,6 @@
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "editor.wordWrap": "on",
   "prettier.trailingComma": "all",
-  "python.analysis.autoImportCompletions": true
+  "python.analysis.autoImportCompletions": true,
+  "github.copilot.advanced": {}
 }
