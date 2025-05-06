@@ -11,7 +11,7 @@ function setBg() {
 }
 
 if [ "$#" -lt 1 ]; then
-    photo=$(find "$HOME"/.local/share/assets/wallpapers/ -name '*.jpg' | shuf -n 1)
+    photo=$(find "$HOME"/.local/share/assets/wallpapers/ -name '*.jpg' -o -name '*.png' | shuf -n 1)
 else
     photo=$1
 fi
