@@ -39,7 +39,7 @@ export R_HISTFILE="$XDG_CONFIG_HOME/R/history"
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 
 # Other variables
-export BROWSER="/usr/bin/chromium"
+export BROWSER="/usr/bin/firefox"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Configuration for other ZSH config file
@@ -58,4 +58,7 @@ export ISCOBOL=/home/juanscr/programs/isCOBOL2019R2
 export ISCOBOL_JDK_ROOT=/usr/lib/jvm/java-8-openjdk
 export LD_LIBRARY_PATH=$ISCOBOL/native/lib
 export PATH=$ISCOBOL/bin:$PATH
+
+# Wayland
+export MOZ_ENABLE_WAYLAND=1
 

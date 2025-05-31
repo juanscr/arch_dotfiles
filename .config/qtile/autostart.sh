@@ -42,7 +42,7 @@ extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wa
 nm-applet &
 
 # Browser
-chromium &
+firefox &
 
 # Terminal
 "$HOME"/.local/share/bin/launchers/launch-terminal.sh &
