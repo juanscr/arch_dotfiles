@@ -16,10 +16,6 @@ if [[ "$CURRENT_THEME" == "dark" ]]; then
     cp ~/.local/share/bin/assets/light-gsettings ~/.local/share/nwg-look/gsettings && \
         nwg-look -a
 
-    # Change bar
-    ln -sf ~/.local/share/bin/assets/solarized-style.css ~/.config/waybar/style.css && \
-        ~/.config/waybar/launch-waybar.sh
-
     # VSCode
     settingsTempFile=(tempfile)
     jq '.["workbench.colorTheme"] = "Solarized Light+"' ~/.config/Code/User/settings.json > $settingsTempFile
@@ -41,10 +37,6 @@ else
     # NWG Shell for all other apps
     cp ~/.local/share/bin/assets/dark-gsettings ~/.local/share/nwg-look/gsettings && \
         nwg-look -a
-
-    # Change bar
-    ln -sf ~/.local/share/bin/assets/dracula-style.css ~/.config/waybar/style.css && \
-        ~/.config/waybar/launch-waybar.sh
 
     # VSCode
     settingsTempFile=(tempfile)
