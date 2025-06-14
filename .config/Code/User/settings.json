@@ -38,5 +38,21 @@
   "editor.wordWrap": "on",
   "prettier.trailingComma": "all",
   "python.analysis.autoImportCompletions": true,
-  "github.copilot.advanced": {}
+  "github.copilot.advanced": {},
+  "github.copilot.enable": {
+    "COBOL_MF_LISTFILE": false,
+    "COBOL_PCOB_LISTFILE": false,
+    "COBOL_ACU_LISTFILE": false,
+    "COBOL_MF_PREP": false,
+    "mfu": false,
+    "utreport": false,
+    "typescript": true,
+    "RMCOBOL": false,
+    "ACUCOBOL": false,
+    "BITLANG-COBOL": false,
+    "ILECOBOL": false,
+    "COBOL": false,
+    "COBOLIT": false
+  },
+  "docker.extension.enableComposeLanguageServer": false
 }
