@@ -63,7 +63,8 @@
     "hyprland/window": {
         "icon": true,
         "icon-size": 16,
-        "separate-outputs": true
+        "separate-outputs": true,
+        "format": ""
     },
 
     // Check updates module
@@ -75,7 +76,7 @@
       "format": "{}{icon}",
       "return-type": "json",
       "format-icons": {
-        "pending-updates": "<span font='24px' rise='-4500'></span> ",
+        "pending-updates": "<span font='24px' rise='-4500'></span>",
         "updated": "<span font='24px' rise='-4500'></span>"
       },
       "exec-if": "which waybar-updates",

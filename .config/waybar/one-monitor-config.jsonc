@@ -11,10 +11,10 @@
     "modules-center": [],
     "modules-right": [
         "mpris",
-        "custom/sepPulseAudio",
-        "pulseaudio",
         "custom/sepWindow",
         "hyprland/window",
+        "custom/sepPulseAudio",
+        "pulseaudio",
         "custom/sepUpdates",
         "custom/updates",
         "custom/sepBattery",
