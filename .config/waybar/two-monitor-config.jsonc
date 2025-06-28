@@ -3,7 +3,7 @@
     {
         "height": 30,
         "spacing": 4,
-        "output": ["DP-1", "HDMI-A-1", "DP-2"],
+        "output": ["DP-1", "HDMI-A-1", "DP-2", "DP-3"],
 
         // Modules in bar
         "modules-left": [
