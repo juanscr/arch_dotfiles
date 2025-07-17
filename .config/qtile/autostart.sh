@@ -18,7 +18,6 @@ function launchX11Apps() {
 
     # Tray icons
     flameshot &
-    discord &
 
     # Aesthetics
     xrdb "$HOME"/.config/X11/Xresources &
@@ -28,9 +27,6 @@ function launchX11Apps() {
 }
 
 function launchWaylandApps() {
-    # Discord
-    discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
-
     # Spotify launcher
     echo "[spotify]
 extra_arguments = [\"--enable-features=UseOzonePlatform\", \"--ozone-platform=wayland\"]" \
