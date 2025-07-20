@@ -20,6 +20,8 @@
         "custom/sepBattery",
         "battery",
         "group/hardware",
+        "custom/sepBacklight",
+        "backlight",
         "custom/sepClock",
         "clock",
         "custom/sepTray",

@@ -118,9 +118,7 @@
             "custom/sepCpu",
 			"cpu",
             "custom/sepMemory",
-			"memory",
-            "custom/sepBacklight",
-            "backlight"
+			"memory"
 		]
     },
     "custom/hardwareButton": {
