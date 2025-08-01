@@ -1,7 +1,5 @@
 {
   "workbench.colorTheme": "Dracula Theme",
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/juanscr/.config/nvim/init.vim",
   "keyboard.dispatch": "keyCode",
   "editor.fontLigatures": true,
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
@@ -27,7 +25,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.analysis.typeCheckingMode": "basic",
-  "vim.useSystemClipboard": true,
   "trailing-spaces.trimOnSave": true,
   "[python]": {
     "editor.formatOnType": true,
@@ -54,5 +51,9 @@
     "COBOL": false,
     "COBOLIT": false
   },
-  "docker.extension.enableComposeLanguageServer": false
+  "docker.extension.enableComposeLanguageServer": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  }
 }

@@ -19,5 +19,7 @@ function SetColorScheme(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-vim.g.solarized_disable_background = true
-SetColorScheme()
+if not vim.g.vscode then
+    vim.g.solarized_disable_background = true
+    SetColorScheme()
+end

@@ -1,4 +1,9 @@
-local neogit = require('neogit')
-neogit.setup {}
+function setup_neogit()
+    local neogit = require('neogit')
+    neogit.setup {}
+    vim.keymap.set('n', '<leader>gg', neogit.open)
+end
 
-vim.keymap.set('n', '<leader>gg', neogit.open)
+if not vim.g.vscode then
+    setup_neogit()
+end
