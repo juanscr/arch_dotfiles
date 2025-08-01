@@ -62,3 +62,7 @@ export PATH=$ISCOBOL/bin:$PATH
 # Wayland
 export MOZ_ENABLE_WAYLAND=1
 
+# GO
+export GOPATH="$HOME/.local/share/go"
+export PATH=$GOPATH/bin:$PATH
+
