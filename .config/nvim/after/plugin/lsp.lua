@@ -1,6 +1,7 @@
 lsp_keys = {
     definition = "<leader>ldo",
     hover = "<leader>lh",
+    peek = "<leader>lp",
     goToNext = "<leader>len",
     goToPrev = "<leader>lep",
     rename = "<leader>lcn",
@@ -74,19 +75,11 @@ function setup_lsp_vscode()
     local vscode = require('vscode')
     vim.keymap.set("n", lsp_keys.definition, function() vscode.action("editor.action.revealDefinition") end)
     vim.keymap.set("n", lsp_keys.rename, function() vscode.action("editor.action.rename") end)
-    vim.keymap.set("n", lsp_keys.hover, function() vscode.action("editor.action.peekDefinition") end, opts)
+    vim.keymap.set("n", lsp_keys.hover, function() vscode.action("editor.action.showHover") end, opts)
     vim.keymap.set('n', lsp_keys.references, function() vscode.action("editor.action.goToReferences") end, {})
-
-
-    -- Focus the sidebar (Explorer, Source Control, etc.)
-    vim.keymap.set("n", "<leader>we", function()
-      vscode.action("workbench.action.focusSideBar")
-    end)
-
-    -- Fuzzy finding files
-    vim.keymap.set('n', '<leader>ff', function()
-      vscode.action('workbench.action.quickOpen')
-    end)
+    vim.keymap.set('n', lsp_keys.peek, function() vscode.action("editor.action.peekDefinition") end, {})
+    vim.keymap.set('n', lsp_keys.goToNext, function() vscode.action("editor.action.marker.next") end, {})
+    vim.keymap.set('n', lsp_keys.goToPrev, function() vscode.action("editor.action.marker.prev") end, {})
 end
 
 if not vim.g.vscode then
