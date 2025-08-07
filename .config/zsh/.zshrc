@@ -28,6 +28,9 @@ alias autoremove='pacman -Qtdq | sudo pacman -Rns -'
 # Compression related commands
 alias untar='tar xf'
 
+# Inspect mcp servers in the web
+alias mcpweb="npx @modelcontextprotocol/inspector"
+
 # Movies related stuff
 alias movie-mode='xset s off -dpms && remotemouse'
 alias movie-mode-off='xset s 3600 3600 && killall remotemouse RemoteMouse'
