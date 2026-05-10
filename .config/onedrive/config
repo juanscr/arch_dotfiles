@@ -1,0 +1,8 @@
+sync_dir = "~/documents/one-drive"
+
+### Skip Files
+# Default
+skip_file = "~*|.~*|*.tmp|*.swp|*.partial"
+
+# Latex garbage
+skip_file = "*.aux|*.fdb_latexmk|*.fls|*.log"
