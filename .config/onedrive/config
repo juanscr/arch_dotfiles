@@ -5,4 +5,4 @@ sync_dir = "~/documents/one-drive"
 skip_file = "~*|.~*|*.tmp|*.swp|*.partial"
 
 # Latex garbage
-skip_file = "*.aux|*.fdb_latexmk|*.fls|*.log"
+skip_file = "*.aux|*.fdb_latexmk|*.fls|*.log|*.out"
