@@ -1,6 +1,6 @@
 # ============ ALIASES ============ #
 # Editor
-alias n="nvim --listen /tmp/nvim.pipe"
+alias n="nvim"
 
 # VS Code launcher
 alias c="code"
