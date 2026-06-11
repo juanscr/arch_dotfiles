@@ -19,7 +19,7 @@ function window_movement_non_vscode()
     vim.keymap.set("n", "<leader>w", "<C-w>")
 
     -- Explore directories
-    vim.keymap.set("n", "<leader>fe", ":Explore<CR>")
+    vim.keymap.set("n", "<leader>we", ":Explore<CR>")
 end
 
 function window_movement_vscode()
