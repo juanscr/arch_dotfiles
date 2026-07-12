@@ -1,6 +1,9 @@
 -- Leader
 vim.g.mapleader = " "
 
+-- Terminal mode: escape returns to normal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- Move files in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -20,6 +23,13 @@ function window_movement_non_vscode()
 
     -- Explore directories
     vim.keymap.set("n", "<leader>we", ":Explore<CR>")
+
+    -- Open a terminal below occupying at most 1/4 of the screen
+    vim.keymap.set("n", "<leader>wt", function()
+        local height = math.floor(vim.o.lines / 4)
+        vim.cmd("botright " .. height .. "split | terminal")
+        vim.cmd.startinsert()
+    end)
 end
 
 function window_movement_vscode()
