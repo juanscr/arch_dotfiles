@@ -24,6 +24,21 @@ function window_movement_non_vscode()
     -- Explore directories
     vim.keymap.set("n", "<leader>we", ":Explore<CR>")
 
+    -- Close current buffer
+    vim.keymap.set("n", "<leader>wq", ":bdelete<CR>")
+
+    -- Reload (re-sync) the config without restarting nvim
+    vim.keymap.set("n", "<leader>rc", function()
+        for name, _ in pairs(package.loaded) do
+            if name:match("^juanscr") then
+                package.loaded[name] = nil
+            end
+        end
+        dofile(vim.env.MYVIMRC)
+        vim.cmd("runtime! after/plugin/*.lua")
+        vim.notify("Config reloaded", vim.log.levels.INFO)
+    end)
+
     -- Open a terminal below occupying at most 1/4 of the screen
     vim.keymap.set("n", "<leader>wt", function()
         local height = math.floor(vim.o.lines / 4)
