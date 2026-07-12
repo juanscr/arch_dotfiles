@@ -4,6 +4,7 @@ function setup_conform()
       python = { "isort", "black" },
       javascript = { { "prettierd", "prettier" } },
       typescript = { { "prettierd", "prettier" } },
+      rust = { "rustfmt" },
     },
   })
 

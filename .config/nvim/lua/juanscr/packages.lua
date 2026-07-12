@@ -27,26 +27,10 @@ require("lazy").setup({
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = 'main',
+        build = ':TSUpdate',
         cond = not vim.g.vscode,
-        config = function ()
-            local configs = require("nvim-treesitter.configs")
-              configs.setup({
-                  ensure_installed = {
-                     "lua",
-                     "vim",
-                     "vimdoc",
-                     "python",
-                     "sql",
-                     "typescript",
-                     "javascript",
-                     "html",
-                     "rust"
-                 },
-                  sync_install = false,
-                  highlight = { enable = true },
-                  indent = { enable = true },
-                })
-        end
+        lazy = false
     },
 
     -- LSP Zero configuration

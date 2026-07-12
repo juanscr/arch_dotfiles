@@ -44,31 +44,7 @@ function setup_lsp()
 
     -- Automatic installation of lsp servers
     require('mason').setup({})
-    require('mason-lspconfig').setup({
-        ensure_installed = {
-            "rust_analyzer",
-            "pyright",
-            "bashls",
-            "dockerls",
-            "eslint",
-            "html",
-            "jsonls",
-            "tsserver",
-            "tailwindcss",
-            "taplo",
-            "texlab",
-            "sqlls",
-            "volar",
-            "yamlls"
-        },
-        handlers = {
-            lsp.default_setup,
-            lua_ls = function()
-                local lua_opts = lsp.nvim_lua_ls()
-                require('lspconfig').lua_ls.setup(lua_opts)
-            end,
-        },
-    })
+    require('mason-lspconfig').setup()
 end
 
 function setup_lsp_vscode()

@@ -1,39 +1,36 @@
+local ensure_installed = {
+    "c",
+    "javascript",
+    "typescript",
+    "bash",
+    "css",
+    "dockerfile",
+    "graphql",
+    "json",
+    "python",
+    "rust",
+    "scss",
+    "toml",
+    "yaml",
+    "lua",
+    "vim",
+    "markdown"
+}
+
 function setup_treesitter()
-    require 'nvim-treesitter.install'.prefer_git = false
     require 'nvim-treesitter.install'.compilers = { "gcc", "cc", "zig" }
+    require 'nvim-treesitter'.install(ensure_installed)
 
-    require'nvim-treesitter.configs'.setup {
-        ensure_installed = {
-            "c",
-            "javascript",
-            "typescript",
-            "bash",
-            "css",
-            "dockerfile",
-            "graphql",
-            "json",
-            "python",
-            "rust",
-            "scss",
-            "toml",
-            "yaml",
-            "lua",
-            "vim",
-            "markdown"
-        },
-
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
-
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-        auto_install = true,
-
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-    }
+    -- Enable highlighting automatically for any buffer that has a parser
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "*",
+        callback = function(args)
+            local ok = pcall(vim.treesitter.start, args.buf)
+            if ok then
+                vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            end
+        end,
+    })
 end
 
 if not vim.g.vscode then
