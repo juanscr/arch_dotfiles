@@ -2,8 +2,10 @@ function setup_conform()
   require("conform").setup({
     formatters_by_ft = {
       python = { "isort", "black" },
-      javascript = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      html = { "prettierd", "prettier", stop_after_first = true },
+      css = { "prettierd", "prettier", stop_after_first = true },
       rust = { "rustfmt" },
     },
   })
