@@ -67,7 +67,7 @@ require("lazy").setup({
     -- Fuzy Finder
     {
         'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
+        branch = 'master',
         cond = not vim.g.vscode,
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
