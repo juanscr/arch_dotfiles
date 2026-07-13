@@ -27,6 +27,10 @@ function window_movement_non_vscode()
     -- Close current buffer
     vim.keymap.set("n", "<leader>wq", ":bdelete<CR>")
 
+    -- Cycle through open buffers
+    vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
+    vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
+
     -- Reload (re-sync) the config without restarting nvim
     vim.keymap.set("n", "<leader>rc", function()
         for name, _ in pairs(package.loaded) do

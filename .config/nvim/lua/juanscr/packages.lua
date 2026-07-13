@@ -101,5 +101,12 @@ require("lazy").setup({
         'stevearc/conform.nvim',
         cond = not vim.g.vscode,
         opts = {},
+    },
+
+    -- Harpoon!
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
     }
 })
