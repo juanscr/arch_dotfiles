@@ -35,3 +35,6 @@ else
 fi
 
 echo $CURRENT_THEME > ~/.local/share/.user_current_theme
+
+# Reload waybar so it picks up the new theme (launch script reads the file above)
+~/.config/waybar/launch-waybar.sh
