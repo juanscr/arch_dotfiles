@@ -1,8 +1,11 @@
 sync_dir = "~/documents/one-drive"
 
+### Skip Directories
+skip_dir = "documents/Rockstar Games"
+
 ### Skip Files
 # Default
 skip_file = "~*|.~*|*.tmp|*.swp|*.partial"
 
 # Latex garbage
-skip_file = "*.aux|*.fdb_latexmk|*.fls|*.log|*.out"
+skip_file = "*.aux|*.fdb_latexmk|*.fls|*.log|*.out|*.toc"
