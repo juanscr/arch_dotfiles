@@ -7,6 +7,11 @@ if [[ "$CURRENT_THEME" == "dark" ]]; then
         ~/.config/alacritty/solarized-light.toml \
         ~/.config/alacritty/current-theme.toml
 
+    # Tofi
+    ln -sf \
+        ~/.config/tofi/solarized-light.conf \
+        ~/.config/tofi/current-theme.conf
+
     # NWG Shell for all other apps
     cp ~/.local/share/bin/assets/light-gsettings ~/.local/share/nwg-look/gsettings && \
         nwg-look -a
@@ -23,6 +28,11 @@ else
     ln -sf \
         ~/.config/alacritty/dracula.toml \
         ~/.config/alacritty/current-theme.toml
+
+    # Tofi
+    ln -sf \
+        ~/.config/tofi/dracula.conf \
+        ~/.config/tofi/current-theme.conf
 
     # NWG Shell for all other apps
     cp ~/.local/share/bin/assets/dark-gsettings ~/.local/share/nwg-look/gsettings && \
