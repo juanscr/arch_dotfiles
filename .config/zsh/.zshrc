@@ -1,4 +1,8 @@
 # ============ ALIASES ============ #
+# AI
+AI_HARNESS="copilot"
+alias ai="$AI_HARNESS"
+
 # Editor
 alias n="nvim"
 
@@ -48,6 +52,9 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # ==== Git ==== #
 alias dfiles='/usr/bin/git --git-dir=$HOME/programs/arch_qtile_dotfiles --work-tree=$HOME'
+
+# == Open Workspace == #
+alias openWorkspace="alacritty -e $AI_HARNESS &! alacritty &! n ."
 
 # Function which calls git, if inside a repository or my dotfiles alias
 # otherwise.
