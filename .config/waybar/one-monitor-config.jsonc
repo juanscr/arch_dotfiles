@@ -24,6 +24,8 @@
         "backlight",
         "custom/sepClock",
         "clock",
+        "custom/sepTheme",
+        "custom/theme",
         "custom/sepTray",
         "tray"
     ],

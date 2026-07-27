@@ -1,6 +1,10 @@
+# Determine the current theme from the state file (source of truth), not the
+# environment, so this works from any terminal or from a waybar button.
+CURRENT_THEME=$(cat ~/.local/share/.user_current_theme 2>/dev/null)
+
 # Swap alacritty
 if [[ "$CURRENT_THEME" == "dark" ]]; then
-    export CURRENT_THEME="light"
+    CURRENT_THEME="light"
 
     # Alacritty
     ln -sf \
@@ -22,7 +26,7 @@ if [[ "$CURRENT_THEME" == "dark" ]]; then
     mv $settingsTempFile ~/.config/Code/User/settings.json
 
 else
-    export CURRENT_THEME="dark"
+    CURRENT_THEME="dark"
 
     # Alacritty
     ln -sf \

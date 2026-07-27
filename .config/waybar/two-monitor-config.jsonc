@@ -21,6 +21,8 @@
             "custom/updates",
             "custom/sepBattery",
             "battery",
+            "custom/sepTheme",
+            "custom/theme",
             "custom/sepTray",
             "tray"
         ],

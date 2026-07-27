@@ -169,6 +169,19 @@
         "format": "<span font='24px' rise='-4500'></span> {:%b %d %H:%M}"
     },
 
+    // Color scheme toggle
+    "custom/sepTheme": {
+        "format": "|",
+        "tooltip": false
+    },
+    "custom/theme": {
+        "format": "{}",
+        "exec": "echo \"<span font='24px' rise='-4500'></span>\"",
+        "interval": "once",
+        "on-click": "~/.local/share/bin/toggle-scheme.sh",
+        "tooltip": false
+    },
+
     // System tray
     "custom/sepTray": {
         "format": "|",
