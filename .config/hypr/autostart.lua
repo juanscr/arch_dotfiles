@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+    hl.exec_cmd("~/.config/waybar/hyprland-waybar-event.sh")
+    hl.exec_cmd("~/.config/waybar/launch-waybar.sh")
+    hl.exec_cmd("~/.config/qtile/autostart.sh")
+    hl.exec_cmd("~/.local/share/bin/bg.sh")
+end)
