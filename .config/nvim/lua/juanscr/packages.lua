@@ -69,7 +69,13 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         branch = 'master',
         cond = not vim.g.vscode,
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = 'make'
+            }
+        }
     },
 
     -- Icons for files
@@ -87,8 +93,8 @@ require("lazy").setup({
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed, not both.
-            "nvim-telescope/telescope.nvim", -- optional
-            "ibhagwan/fzf-lua",              -- optiona
+            "nvim-telescope/telescope.nvim" -- optional
+            --"ibhagwan/fzf-lua",            -- optional
         },
         config = true
     },
