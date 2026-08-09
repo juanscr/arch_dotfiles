@@ -84,6 +84,15 @@ require("lazy").setup({
         cond = not vim.g.vscode
     },
 
+    -- Status line
+    {
+        'nvim-lualine/lualine.nvim',
+        cond = not vim.g.vscode,
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
+    },
+
     -- Magit alike
     {
         "NeogitOrg/neogit",
