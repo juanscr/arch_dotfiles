@@ -2,6 +2,7 @@ sync_dir = "~/documents/one-drive"
 
 ### Skip Directories
 skip_dir = "documents/Rockstar Games"
+skip_dir = "documents/Ghost of Tsushima DIRECTOR'S CUT"
 
 ### Skip Files
 # Default
