@@ -45,6 +45,9 @@ local workspaceRules = {
     [8] = {
         { title = "Spotify Premium" },
     },
+    [9] = {
+        { class = "github" },
+    },
 }
 
 for workspace, matches in pairs(workspaceRules) do

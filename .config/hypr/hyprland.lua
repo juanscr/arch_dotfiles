@@ -34,7 +34,7 @@ hl.define_submap(exitMode, function()
 end)
 
 -- Search and run app
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("tofi-run | xargs hyprctl dispatch exec --"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd([[command=$(tofi-run); [ -n "$command" ] && exec "$command"]]))
 
 -- ========== Media controls ==========
 -- Volume control
