@@ -21,6 +21,7 @@ image/webp=nsxiv.desktop
 image/bmp=nsxiv.desktop
 image/tiff=nsxiv.desktop
 image/svg+xml=nsxiv.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 
 [Added Associations]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
@@ -34,3 +35,4 @@ application/x-extension-shtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
